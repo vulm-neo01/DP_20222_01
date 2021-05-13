@@ -30,7 +30,7 @@ public class CalculateDistanceTest {
         boolean result;
         try {
             distanceCalculator.calculateDistance(address, province);
-            altDistanceCalculator.calculateDistance(province, address);
+            altDistanceCalculator.calculateDistance(province + address);
             result = true;
         } catch (Exception ex) {
             result = false;
