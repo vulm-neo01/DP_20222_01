@@ -1,4 +1,5 @@
-#  An Internet Media Store
+# Nhóm 1 - IT4536 
+# An Internet Media Store
 <p align="center">
   <img src="src/main/resources/assets/images/aims_cover_image.png" />
 </p>
