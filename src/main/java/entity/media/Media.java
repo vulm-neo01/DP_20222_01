@@ -47,6 +47,8 @@ public class Media {
 
     public int getQuantity() throws SQLException {
         int updated_quantity = new MediaDAO().getMediaById(id).quantity;
+//        Đoạn code trên có vẻ như vi phạm Content Coupling vì nó truy cập trực tiếp vào lớp
+//        MediaDAO và phuơng thức getMediaById() của nó => phụ thuộc giữa 2 lớp.
         this.quantity = updated_quantity;
         return updated_quantity;
     }
