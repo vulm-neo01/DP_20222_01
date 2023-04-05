@@ -18,7 +18,7 @@ import views.screen.popup.PopupScreen;
 
 public class ResultScreenHandler extends BaseScreenHandler {
 
-	private static final Logger LOGGER = Utils.getLogger(PaymentScreenHandler.class.getName());
+	private static final Logger LOGGER = Utils.getLogger(PaymentScreenHandler.class.getName());   //**common coupling
 
 	private String result;
 	private String message;
@@ -30,10 +30,10 @@ public class ResultScreenHandler extends BaseScreenHandler {
 			setupFunctionality();
 		} catch (IOException ex) {
 			LOGGER.info(ex.getMessage());
-			PopupScreen.error("Error when loading resources.");
+			PopupScreen.error("Error when loading resources.");   //**common coupling
 		} catch (Exception ex) {
 			LOGGER.info(ex.getMessage());
-			PopupScreen.error(ex.getMessage());
+			PopupScreen.error(ex.getMessage());   //**common coupling
 		}
 	}
 
