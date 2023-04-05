@@ -28,7 +28,10 @@ public class AuthenticationController extends BaseController {
             return true;
         }
     }
-
+    // Có thể có vi phạm Content coupling với Class SessionInformation dưới. Khi mà nó gọi trực tiếp đến
+    // SessionInformation gây sự phụ thuộc giữa 2 Class
+    // Ngoài ra do SessionInformation không có getter setter nên bên dưới đang trực tiếp truy cập và
+    // cập nhật thông tin của mainUser, expiredTime, expiredTime.
     public User getMainUser() throws ExpiredSessionException {
         if (SessionInformation.mainUser == null || SessionInformation.expiredTime == null || SessionInformation.expiredTime.isBefore(LocalDateTime.now())) {
             logout();
