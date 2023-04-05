@@ -15,7 +15,7 @@ import java.util.List;
 public class MediaDAO {
 
     public List getAllMedia() throws SQLException {
-        Statement stm = AIMSDB.getConnection().createStatement();
+        Statement stm = AIMSDB.getConnection().createStatement();   //***Common coupling
         ResultSet res = stm.executeQuery("select * from Media");
         ArrayList medium = new ArrayList<>();
         while (res.next()) {

@@ -36,7 +36,7 @@ import java.util.logging.Logger;
 
 public class LoginScreenHandler extends BaseScreenHandler{
 
-    public static Logger LOGGER = Utils.getLogger(LoginScreenHandler.class.getName());
+    public static Logger LOGGER = Utils.getLogger(LoginScreenHandler.class.getName());   //***Common coupling
 
     @FXML
     private TextField email;
@@ -51,10 +51,10 @@ public class LoginScreenHandler extends BaseScreenHandler{
             setupFunctionality();
         } catch (IOException ex) {
             LOGGER.info(ex.getMessage());
-            PopupScreen.error("Error when loading resources.");
+            PopupScreen.error("Error when loading resources.");   //***Common coupling
         } catch (Exception ex) {
             LOGGER.info(ex.getMessage());
-            PopupScreen.error(ex.getMessage());
+            PopupScreen.error(ex.getMessage());   //***Common coupling
         }
     }
 
@@ -72,10 +72,10 @@ public class LoginScreenHandler extends BaseScreenHandler{
     void login(MouseEvent event) throws IOException, InterruptedException, SQLException {
         try {
             getBController().login(email.getText(), password.getText());
-            PopupScreen.success("Login Successfully!");
+            PopupScreen.success("Login Successfully!");   //***Common coupling
             backToHomeScreen(event);
         } catch (Exception ex) {
-            PopupScreen.error(ex.getMessage());
+            PopupScreen.error(ex.getMessage());   //***Common coupling
         }
     }
 

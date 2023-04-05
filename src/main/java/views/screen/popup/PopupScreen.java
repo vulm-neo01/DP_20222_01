@@ -22,7 +22,7 @@ public class PopupScreen extends BaseScreenHandler {
     Label message;
 
     public PopupScreen(Stage stage) throws IOException{
-        super(stage, ViewsConfig.POPUP_PATH);
+        super(stage, ViewsConfig.POPUP_PATH);   //***Common coupling
     }
 
     private static PopupScreen popup(String message, String imagePath, Boolean undecorated) throws IOException{
@@ -34,17 +34,17 @@ public class PopupScreen extends BaseScreenHandler {
     }
 
     public static void success(String message) throws IOException{
-        popup(message, ViewsConfig.IMAGE_PATH + "/" + "tickgreen.png", true)
+        popup(message, ViewsConfig.IMAGE_PATH + "/" + "tickgreen.png", true)   //***Common coupling
                 .show(true);
     }
 
     public static void error(String message) throws IOException{
-        popup(message, ViewsConfig.IMAGE_PATH + "/" + "tickerror.png", false)
+        popup(message, ViewsConfig.IMAGE_PATH + "/" + "tickerror.png", false)   //***Common coupling
                 .show(false);
     }
 
     public static PopupScreen loading(String message) throws IOException{
-        return popup(message, ViewsConfig.IMAGE_PATH + "/" + "loading.gif", true);
+        return popup(message, ViewsConfig.IMAGE_PATH + "/" + "loading.gif", true);   //***Common coupling
     }
 
     public void setImage(String path) {

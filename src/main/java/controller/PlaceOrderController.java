@@ -26,14 +26,14 @@ public class PlaceOrderController extends BaseController {
     /**
      * Just for logging purpose
      */
-    private static Logger LOGGER = utils.Utils.getLogger(PlaceOrderController.class.getName());
+    private static Logger LOGGER = utils.Utils.getLogger(PlaceOrderController.class.getName());   //***Common coupling
 
     /**
      * This method checks the availability of product when user click PlaceOrder button
      * @throws SQLException
      */
     public void placeOrder() throws SQLException {
-        SessionInformation.cartInstance.checkAvailabilityOfProduct();
+        SessionInformation.cartInstance.checkAvailabilityOfProduct();   //***Common coupling
     }
 
     /**
@@ -42,7 +42,7 @@ public class PlaceOrderController extends BaseController {
      * @throws SQLException
      */
     public Order createOrder() throws SQLException {
-        return new Order(SessionInformation.cartInstance);
+        return new Order(SessionInformation.cartInstance);   //***Common coupling
     }
 
     /**

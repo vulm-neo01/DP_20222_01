@@ -27,7 +27,7 @@ import views.screen.popup.PopupScreen;
 import views.screen.shipping.ShippingScreenHandler;
 
 public class CartScreenHandler extends BaseScreenHandler {
-	private static Logger LOGGER = Utils.getLogger(CartScreenHandler.class.getName());
+	private static Logger LOGGER = Utils.getLogger(CartScreenHandler.class.getName());   //***Common coupling
 
 	@FXML
 	private ImageView aimsImage;
@@ -59,16 +59,16 @@ public class CartScreenHandler extends BaseScreenHandler {
 			setupFunctionality();
 		} catch (IOException ex) {
 			LOGGER.info(ex.getMessage());
-			PopupScreen.error("Error when loading resources.");
+			PopupScreen.error("Error when loading resources.");   //***Common coupling
 		} catch (Exception ex) {
 			LOGGER.info(ex.getMessage());
-			PopupScreen.error(ex.getMessage());
+			PopupScreen.error(ex.getMessage());   //***Common coupling
 		}
 	}
 
 	protected void setupFunctionality() throws Exception {
 		// fix relative image path caused by fxml
-		File file = new File(ViewsConfig.IMAGE_PATH + "/Logo.png");
+		File file = new File(ViewsConfig.IMAGE_PATH + "/Logo.png");   //***Common coupling
 		Image im = new Image(file.toURI().toString());
 		aimsImage.setImage(im);
 
@@ -108,7 +108,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 			// create placeOrderController and process the order
 			PlaceOrderController placeOrderController = new PlaceOrderController();
 			if (placeOrderController.getListCartMedia().size() == 0){
-				PopupScreen.error("You don't have anything to place");
+				PopupScreen.error("You don't have anything to place");   //***Common coupling
 				return;
 			}
 
@@ -122,7 +122,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 
 			// display shipping form
 			ShippingScreenHandler shippingScreenHandler = new ShippingScreenHandler(
-					this.stage, ViewsConfig.SHIPPING_SCREEN_PATH, order);
+					this.stage, ViewsConfig.SHIPPING_SCREEN_PATH, order);   //***Common coupling
 			shippingScreenHandler.setPreviousScreen(this);
 			shippingScreenHandler.setHomeScreenHandler(homeScreenHandler);
 			shippingScreenHandler.setScreenTitle("Shipping Screen");
@@ -143,14 +143,14 @@ public class CartScreenHandler extends BaseScreenHandler {
 	void updateCartAmount(){
 		// calculate subtotal and amount
 		int subtotal = getBController().getCartSubtotal();
-		int vat = (int)((ViewsConfig.PERCENT_VAT/100)*subtotal);
+		int vat = (int)((ViewsConfig.PERCENT_VAT/100)*subtotal);   //***Common coupling
 		int amount = subtotal + vat;
 		LOGGER.info("amount" + amount);
 
 		// update subtotal and amount of Cart
-		labelSubtotal.setText(ViewsConfig.getCurrencyFormat(subtotal));
-		labelVAT.setText(ViewsConfig.getCurrencyFormat(vat));
-		labelAmount.setText(ViewsConfig.getCurrencyFormat(amount));
+		labelSubtotal.setText(ViewsConfig.getCurrencyFormat(subtotal));   //***Common coupling
+		labelVAT.setText(ViewsConfig.getCurrencyFormat(vat));   //***Common coupling
+		labelAmount.setText(ViewsConfig.getCurrencyFormat(amount));   //***Common coupling
 	}
 	
 	private void displayCartWithMediaAvailability(){
@@ -165,7 +165,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 
 				// display the attribute of vboxCart media
 				CartItem cartItem = (CartItem) cm;
-				MediaHandler mediaCartScreen = new MediaHandler(ViewsConfig.CART_MEDIA_PATH, this);
+				MediaHandler mediaCartScreen = new MediaHandler(ViewsConfig.CART_MEDIA_PATH, this);   //***Common coupling
 				mediaCartScreen.setCartItem(cartItem);
 
 				// add spinner

@@ -27,7 +27,7 @@ import views.screen.ViewsConfig;
 
 public class MediaHandler extends FXMLScreenHandler {
 
-	private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());
+	private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());   //***Common coupling
 
 	@FXML
 	protected HBox hboxMedia;
@@ -73,7 +73,7 @@ public class MediaHandler extends FXMLScreenHandler {
 
 	private void setMediaInfo() {
 		title.setText(cartItem.getMedia().getTitle());
-		price.setText(ViewsConfig.getCurrencyFormat(cartItem.getPrice()));
+		price.setText(ViewsConfig.getCurrencyFormat(cartItem.getPrice()));   //***Common coupling
 		File file = new File(cartItem.getMedia().getImageURL());
 		Image im = new Image(file.toURI().toString());
 		image.setImage(im);
@@ -82,10 +82,10 @@ public class MediaHandler extends FXMLScreenHandler {
 		image.setFitWidth(92);
 
 		// add delete button
-		btnDelete.setFont(ViewsConfig.REGULAR_FONT);
+		btnDelete.setFont(ViewsConfig.REGULAR_FONT);   //***Common coupling
 		btnDelete.setOnMouseClicked(e -> {
 			try {
-				SessionInformation.cartInstance.removeCartMedia(cartItem); // update user cart
+				SessionInformation.cartInstance.removeCartMedia(cartItem); // update user cart   //***Common coupling
 				cartScreen.updateCart(); // re-display user cart
 				LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");
 			} catch (SQLException exp) {

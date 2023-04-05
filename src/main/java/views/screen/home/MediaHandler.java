@@ -45,7 +45,7 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
     @FXML
     protected Button addToCartBtn;
 
-    private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());
+    private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());   //***Common coupling
     private Media media;
     private List<Observer> observerList;
 
@@ -75,7 +75,7 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
         mediaImage.setImage(image);
 
         mediaTitle.setText(media.getTitle());
-        mediaPrice.setText(ViewsConfig.getCurrencyFormat(media.getPrice()));
+        mediaPrice.setText(ViewsConfig.getCurrencyFormat(media.getPrice()));   //***Common coupling
         mediaAvail.setText(Integer.toString(media.getQuantity()));
         spinnerChangeNumber.setValueFactory(
             new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 1)

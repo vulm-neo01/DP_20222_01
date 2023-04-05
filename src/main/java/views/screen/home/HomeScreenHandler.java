@@ -38,7 +38,7 @@ import views.screen.popup.PopupScreen;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
-    public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
+    public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());   //***Common coupling
 
     @FXML
     private Label numMediaInCart;
@@ -77,10 +77,10 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             setupFunctionality();
         } catch (IOException ex) {
             LOGGER.info(ex.getMessage());
-            PopupScreen.error("Error when loading resources.");
+            PopupScreen.error("Error when loading resources.");   //***Common coupling
         } catch (Exception ex) {
             LOGGER.info(ex.getMessage());
-            PopupScreen.error(ex.getMessage());
+            PopupScreen.error(ex.getMessage());   //***Common coupling
         }
     }
 
@@ -100,7 +100,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             this.homeItems = new ArrayList<>();
             for (Object object : medium) {
                 Media media = (Media)object;
-                MediaHandler m = new MediaHandler(ViewsConfig.HOME_MEDIA_PATH, media);
+                MediaHandler m = new MediaHandler(ViewsConfig.HOME_MEDIA_PATH, media);   //***Common coupling
                 m.attach(this);
                 this.homeItems.add(m);
             }
@@ -150,11 +150,11 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
     public void setImage() {
         // fix image path caused by fxml
-        File file1 = new File(ViewsConfig.IMAGE_PATH + "/" + "Logo.png");
+        File file1 = new File(ViewsConfig.IMAGE_PATH + "/" + "Logo.png");   //***Common coupling
         Image img1 = new Image(file1.toURI().toString());
         aimsImage.setImage(img1);
 
-        File file2 = new File(ViewsConfig.IMAGE_PATH + "/" + "cart.png");
+        File file2 = new File(ViewsConfig.IMAGE_PATH + "/" + "cart.png");   //***Common coupling
         Image img2 = new Image(file2.toURI().toString());
         cartImage.setImage(img2);
     }
@@ -219,7 +219,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
         try {
             if (requestQuantity > media.getQuantity()) throw new MediaNotAvailableException();
-            Cart cart = SessionInformation.cartInstance;
+            Cart cart = SessionInformation.cartInstance;   //***Common coupling
             // if media already in cart then we will increase the quantity by 1 instead of create the new cartMedia
             CartItem mediaInCart = getBController().checkMediaInCart(media);
             if (mediaInCart != null) {
@@ -233,12 +233,12 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             // subtract the quantity and redisplay
             media.setQuantity(media.getQuantity() - requestQuantity);
             numMediaInCart.setText(cart.getTotalMedia() + " media");
-            PopupScreen.success("The media " + media.getTitle() + " added to Cart");
+            PopupScreen.success("The media " + media.getTitle() + " added to Cart");   //***Common coupling
         } catch (MediaNotAvailableException exp) {
             try {
                 String message = "Not enough media:\nRequired: " + requestQuantity + "\nAvail: " + media.getQuantity();
                 LOGGER.severe(message);
-                PopupScreen.error(message);
+                PopupScreen.error(message);   //***Common coupling
             } catch (Exception e) {
                 LOGGER.severe("Cannot add media to cart: ");
             }
@@ -258,7 +258,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             loginScreen.show();
         } catch (Exception ex) {
             try {
-                PopupScreen.error("Cant trigger Login");
+                PopupScreen.error("Cant trigger Login");   //***Common coupling
             } catch (Exception ex1) {
                 LOGGER.severe("Cannot login");
                 ex.printStackTrace();

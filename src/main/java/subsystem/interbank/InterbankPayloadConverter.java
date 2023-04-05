@@ -100,7 +100,7 @@ public class InterbankPayloadConverter {
     private MyMap convertJSONResponse(String responseText) {
         MyMap response = null;
         try {
-            response = MyMap.toMyMap(responseText, 0);
+            response = MyMap.toMyMap(responseText, 0);   //***Common coupling
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             throw new UnrecognizedException();
