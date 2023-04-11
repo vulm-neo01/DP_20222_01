@@ -23,7 +23,7 @@ public class Order {
         this.subtotal = 0;
         this.tax = 0;
     }
-
+    //Stamp coupling: cart
     public Order(Cart cart) {
         List<OrderItem> orderItems = new ArrayList<>();
         for (Object object : SessionInformation.cartInstance.getListMedia()) {
