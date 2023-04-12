@@ -57,7 +57,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 			PopupScreen.error(ex.getMessage());
 		}
 	}
-
+	//
 	protected void setupData(Object dto) throws Exception {
 		this.invoice = (Invoice) dto;
 	}

@@ -10,7 +10,7 @@ public class Invoice {
     public Invoice(){
 
     }
-
+    //có data coupling do 2 class Invoice và Order tương tác với nhau thông qua dữ liệu total
     public Invoice(Order order){
         this.order = order;
         this.amount = order.getTotal();
