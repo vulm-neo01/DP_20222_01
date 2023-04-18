@@ -69,7 +69,7 @@ public class MyMap extends LinkedHashMap<String, Object> {
 		fields.addAll(Arrays.asList(obj.getClass().getSuperclass().getDeclaredFields()));
 
 		for (Field field : fields) {
-			field.setAccessible(true);
+			field.setAccessible(true); //Content coupling
 			Object value = field.get(obj);
 			try {
 				if (!value.getClass().getPackage().getName().startsWith("java")) {
