@@ -27,6 +27,9 @@ import views.screen.popup.PopupScreen;
 import views.screen.shipping.ShippingScreenHandler;
 
 public class CartScreenHandler extends BaseScreenHandler {
+
+	// Communicational cohesion vì các phương thức trong lớp không liên quan chặt chẽ với nhau,
+	// Có cả logic xử lý giao diện (setupFunctionality) va xử lý logic (requestToViewCart, requestToPlaceOrder,..)
 	private static Logger LOGGER = Utils.getLogger(CartScreenHandler.class.getName());
 
 	@FXML

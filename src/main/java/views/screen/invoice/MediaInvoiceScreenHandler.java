@@ -14,6 +14,7 @@ import views.screen.ViewsConfig;
 
 public class MediaInvoiceScreenHandler extends FXMLScreenHandler{
 
+    // Functional Cohesion
     @FXML
     private HBox hboxMedia;
 

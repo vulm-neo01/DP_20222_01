@@ -35,6 +35,7 @@ import java.util.logging.Logger;
 
 
 public class LoginScreenHandler extends BaseScreenHandler{
+    // Functional cohesion
 
     public static Logger LOGGER = Utils.getLogger(LoginScreenHandler.class.getName());
 

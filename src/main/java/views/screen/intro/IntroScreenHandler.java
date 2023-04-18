@@ -16,6 +16,7 @@ import views.screen.BaseScreenHandler;
 import views.screen.popup.PopupScreen;
 
 public class IntroScreenHandler extends BaseScreenHandler {
+    // Functional Cohesion
 
     private static final Logger LOGGER = Utils.getLogger(IntroScreenHandler.class.getName());
 
