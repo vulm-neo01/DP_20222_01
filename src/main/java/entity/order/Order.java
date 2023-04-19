@@ -17,7 +17,7 @@ public class Order {
     private int tax;
     private List orderMediaList;
     protected DeliveryInfo deliveryInfo;
-
+    // lớp này có functional cohesion do các phương thức có liên quan đến nhau, chúng t=cùng thực hiện một nhiện vụ thieest lập cho lớp
     public Order() {
         this.shippingFees = 0;
         this.subtotal = 0;

@@ -39,7 +39,8 @@ public class Cart {
         }
         return total;
     }
-
+    // có comminicational cohesion do phương thức tính tống tiền các mặt hàng trong giỏ hàng là không cần thiết,
+    // việc tính tống tiền chỉ cần có mặt tại khi thanh toán là được
     public int calSubtotal(){
         int total = 0;
         for (Object obj : lstCartItem) {

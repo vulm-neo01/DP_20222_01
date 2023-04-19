@@ -114,6 +114,8 @@ public class InterbankPayloadConverter {
      * @author hieudm
      * @return the current time as {@link String String}.
      */
+
+    // có Coincidental Cohesion do phương thức getToday không hề liên quan gì đến các phướng thức khác trong class, nó không liên quan đến mục đích của class
     private String getToday() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
