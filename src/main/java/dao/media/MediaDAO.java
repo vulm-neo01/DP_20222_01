@@ -12,6 +12,8 @@ import java.util.List;
 /**
  * @author
  */
+
+//Communicational Cohesion vì chúng sử dụng chung dữ liệu bảng Media
 public class MediaDAO {
 
     public List getAllMedia() throws SQLException {

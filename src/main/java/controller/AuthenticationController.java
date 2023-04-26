@@ -18,6 +18,7 @@ import java.util.Objects;
 /**
  * @author
  */
+//Functional Cohesion vì các method trong class này làm việc cùng nhau và đều nhằm mục đích xử lý logic Authentication
 public class AuthenticationController extends BaseController {
 
     public boolean isAnonymousSession() {

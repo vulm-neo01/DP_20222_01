@@ -21,6 +21,8 @@ import subsystem.InterbankSubsystem;
  * @author hieud
  *
  */
+
+//Functional Cohesion vì các method trong class này làm việc cùng nhau và đều nhằm mục đích xử lý logic Place Order
 public class PaymentController extends BaseController {
 
 	/**

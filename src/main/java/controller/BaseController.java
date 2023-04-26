@@ -10,6 +10,8 @@ import entity.media.Media;
  * This class is the base controller for our AIMS project
  * @author nguyenlm
  */
+
+//Communicational Cohesion vì chúng đều sử dụng dữ liệu trong entity cart
 public class BaseController {
     
     /**

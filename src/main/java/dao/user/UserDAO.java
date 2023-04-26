@@ -13,7 +13,6 @@ import java.util.Date;
  * @author
  */
 public class UserDAO {
-
     public User authenticate(String email, String encryptedPassword) throws SQLException {
         String sql = "SELECT * FROM User " +
                 "where email = '" + email + "' and encrypted_password = '" + encryptedPassword + "'";

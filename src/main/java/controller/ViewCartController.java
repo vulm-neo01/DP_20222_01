@@ -8,6 +8,7 @@ import entity.cart.Cart;
  * This class controls the flow of events when users view the Cart
  * @author nguyenlm
  */
+//Communicational Cohesion vì chúng đều sử dụng dữ liệu trong entity cart
 public class ViewCartController extends BaseController{
     
     /**
