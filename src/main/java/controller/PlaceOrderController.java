@@ -81,6 +81,13 @@ public class PlaceOrderController extends BaseController {
    * @throws InterruptedException
    * @throws IOException
    */
+
+    // VULM: Tách phần validate thông tin giao hàng ra khỏi PlaceOrderController
+    // Có thể sử dụng một Interface DeliveryInfoValidator và class BasicDeliveryInfoValidator implements nó
+    // PlaceOrderController sử dụng DeliveryInfoValidator để validate thông tin giao hàng
+    // Cách này giúp đảm bảo OCP vì khi muốn thay đổi việc validate, hoặc thêm các trường hợp validate
+    // Chúng ta chỉ cần tạo một implement mới của DeliveryInfovalidator mà không cần thay đổi mã nguồn
+    // của PlaceOrderController
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         if (validatePhoneNumber(info.get("phone"))
         || validateName(info.get("name"))
