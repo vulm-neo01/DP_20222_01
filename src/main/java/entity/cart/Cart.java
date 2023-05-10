@@ -6,7 +6,8 @@ import java.util.List;
 
 import common.exception.MediaNotAvailableException;
 import entity.media.Media;
-
+// SOLID vi phạm SRP do lớp cart có  nhiều nhiệm vụ vừa phải quản lý giỏ hàng vừa phải quản lý tính toàn. do vật có thê tác lớp cart thành 2 lớp
+// lớp quản lý giỏ hàng và lớp riêng để tính toán giỏ hàng
 public class Cart {
     
     private List<CartItem> lstCartItem;
