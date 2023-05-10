@@ -61,6 +61,7 @@ public class PlaceOrderController extends BaseController {
      * @throws IOException
      */
     // Stamp coupling: info có thể chứa nhiê trường hơn cần thiết
+    //SRP
     public DeliveryInfo processDeliveryInfo(HashMap info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         LOGGER.info("Process Delivery Info");
         LOGGER.info(info.toString());
@@ -83,13 +84,14 @@ public class PlaceOrderController extends BaseController {
    * @throws IOException
    */
     // Stamp coupling: info
+    //SRP
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         if (validatePhoneNumber(info.get("phone"))
         || validateName(info.get("name"))
         || validateAddress(info.get("address"))) return;
         else throw new InvalidDeliveryInfoException();
     }
-    
+    //SRP
     public boolean validatePhoneNumber(String phoneNumber) {
         if (phoneNumber.length() != 10) return false;
         if (!phoneNumber.startsWith("0")) return false;
@@ -100,7 +102,8 @@ public class PlaceOrderController extends BaseController {
         }
         return true;
     }
-    
+
+    //SRP
     public boolean validateName(String name) {
         if (Objects.isNull(name)) return false;
         String patternString = "^[a-zA-Z\\s]*$";
@@ -108,7 +111,8 @@ public class PlaceOrderController extends BaseController {
         Matcher matcher = pattern.matcher(name);
         return matcher.matches();
     }
-    
+
+    //SRP
     public boolean validateAddress(String address) {
         if (Objects.isNull(address)) return false;
         String patternString = "^[a-zA-Z\\s]*$";

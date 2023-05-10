@@ -20,6 +20,7 @@ import java.util.Objects;
  */
 public class AuthenticationController extends BaseController {
 
+    //SRP
     public boolean isAnonymousSession() {
         try {
             getMainUser();

@@ -102,7 +102,7 @@ public class PaymentController extends BaseController {
 		}
 		return result;
 	}
-
+	//SRP
 	public void emptyCart(){
         SessionInformation.cartInstance.emptyCart();
     }
