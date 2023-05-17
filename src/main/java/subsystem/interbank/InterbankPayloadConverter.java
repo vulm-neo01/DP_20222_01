@@ -54,12 +54,17 @@ public class InterbankPayloadConverter {
         if (response == null)
             return null;
         MyMap transaction = (MyMap) response.get("transaction");
+
+        // Tương tự, interface PaymentMethod thay cho CreditCard để tránh phụ thuộc trực tiếp
+        // CreditCard sẽ implements PaymentMethod
         CreditCard card = new CreditCard(
                 (String) transaction.get("cardCode"),
                 (String) transaction.get("owner"),
                 (String) transaction.get("dateExpired"),
                 Integer.parseInt((String) transaction.get("cvvCode")));
 
+        // Tạo ra abstract class của PaymentTransaction là PaymentTransactionAbs
+        // Để đảm bảo tuân thủ DIP
         PaymentTransaction trans = new PaymentTransaction(
                 (String) response.get("errorCode"),
                 card,
