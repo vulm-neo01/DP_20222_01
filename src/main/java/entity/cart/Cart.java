@@ -8,7 +8,8 @@ import common.exception.MediaNotAvailableException;
 import entity.media.Media;
 
 public class Cart {
-    
+    //SOLID_SRP : VỪa phải quản lý giỏ hàng vừa có phương thức tính toán, và check tồn lại đợn hàng
+
     private List<CartItem> lstCartItem;
 
     public Cart() {
