@@ -18,6 +18,8 @@ public class Book extends Media {
     String language;
     String bookCategory;
 
+    //LSP
+    //Không gọi super phương thức class cha -> thay đổi thuộc tính class cha
     public Book() throws SQLException{
 
     }
