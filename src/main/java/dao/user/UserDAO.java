@@ -12,6 +12,8 @@ import java.util.Date;
 /**
  * @author
  */
+
+ //Tương tự như BookDAO
 public class UserDAO {
 
     public User authenticate(String email, String encryptedPassword) throws SQLException {

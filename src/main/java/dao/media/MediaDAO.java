@@ -12,6 +12,8 @@ import java.util.List;
 /**
  * @author
  */
+
+ //Tương tự như BookDAO
 public class MediaDAO {
 
     public List getAllMedia() throws SQLException {

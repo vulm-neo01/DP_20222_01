@@ -11,6 +11,8 @@ import java.util.Date;
 /**
  * @author
  */
+
+//Tương tự như BookDAO
 public class CDDAO extends MediaDAO {
 
     @Override

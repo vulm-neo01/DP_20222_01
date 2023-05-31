@@ -12,6 +12,24 @@ import java.util.Date;
 /**
  * @author
  */
+
+//Các lớp DAO 'CÓ THỂ' sử dụng template method bằng cách extends lớp cha như sau:
+//          public class DAO{
+	
+// 	            public Object templateMethod(String sql){
+// 		            ResultSet res = getResultSet(sql);
+// 	        	    Object ob = createObject(res);
+// 	        	    return ob;
+// 	            }
+	
+// 	            public ResultSet getResultSet(String sql){
+// 	        	    ResultSet res =  AIMSDB.getConnection().createStatement().executeQuery(sql);
+// 	        	    return res;
+// 	            }
+// 	             public abstract Object createObject(ResultSet res){
+// 	            }
+	
+//      }
 public class BookDAO extends MediaDAO {
 
     @Override
