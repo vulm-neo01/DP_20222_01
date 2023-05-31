@@ -7,6 +7,7 @@ import java.util.List;
 import common.exception.MediaNotAvailableException;
 import entity.media.Media;
 
+//Singleton: Cart should have only 1 instance
 public class Cart {
     
     private List<CartItem> lstCartItem;

@@ -21,6 +21,7 @@ public class Utils {
 		System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-4s] [%1$tF %1$tT] [%2$-7s] %5$s %n");
 	}
 
+	//Singleton
 	public static Logger getLogger(String className) {
 		return Logger.getLogger(className);
 	}

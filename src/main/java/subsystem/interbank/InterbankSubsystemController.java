@@ -4,7 +4,6 @@ import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
 
 public class InterbankSubsystemController {
-
 	private static InterbankPayloadConverter interbankPayloadConverter = new InterbankPayloadConverter();
 	private static InterbankBoundary interbankBoundary = new InterbankBoundary();
 
