@@ -4,7 +4,8 @@ import entity.order.Order;
 import org.example.DistanceCalculator;
 
 public class DeliveryInfo {
-
+    //DP: Singteton Trong suốt chương chỉnh thì chỉ có một đối tượng Delivery duy nhất cho 1 tài khoản, một tài khoản có thể chỉnh sủa thoong tin vận chuyển
+    // nhưng chỉ có một instance duy nhất để quản lý thông tin này.
     protected String name;
     protected String phone;
     protected String province;
@@ -12,13 +13,18 @@ public class DeliveryInfo {
     protected String shippingInstructions;
     protected DistanceCalculator distanceCalculator;
 
-    public DeliveryInfo(String name, String phone, String province, String address, String shippingInstructions, DistanceCalculator distanceCalculator) {
+    private static final DeliveryInfo deliveryInfo = new DeliveryInfo();
+    private DeliveryInfo(String name, String phone, String province, String address, String shippingInstructions, DistanceCalculator distanceCalculator) {
         this.name = name;
         this.phone = phone;
         this.province = province;
         this.address = address;
         this.shippingInstructions = shippingInstructions;
         this.distanceCalculator = distanceCalculator;
+    }
+
+    public static DeliveryInfo getInstance(){
+        return deliveryInfo;
     }
 
     public int calculateShippingFee(Order order) {
