@@ -14,6 +14,11 @@ import java.util.List;
  */
 public class MediaDAO {
 
+    // Có thể cải tiến lớp MediaDAO sử dụng Template Method. Do các lớp con kế thừa của nó thay đổi
+    // nội dung trong phương thức được kế thừa. Việc này sẽ giúp code dễ mở rộng hơn về sau.
+    // Tuy nhiên vấn đề gặp phải là khi thay đổi thành abstract class thì sẽ không thể khai báo một đối tượng từ nó
+    // Vậy nên có thể sẽ cần một class ConcreteMediaDAO extends thay thế.
+
     public List getAllMedia() throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery("select * from Media");
