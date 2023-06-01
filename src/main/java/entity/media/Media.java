@@ -13,10 +13,6 @@ import java.util.logging.Logger;
  * @author nguyenlm
  */
 public class Media {
-    // Chuyển class thành abstract class để sử dụng Template Method
-    // Do hiện tại đang có 3 lớp trực tiếp kế thừa và thay đổi nội dung phương thức chúng kế thừa
-    // Thay đổi thành Template Method sẽ giúp tái sử dụng mã, tăng tính linh hoạt code, dễ dàng mở rộng
-    // và giảm sự phức tạp của code.
 
     private static Logger LOGGER = Utils.getLogger(Media.class.getName());
 
