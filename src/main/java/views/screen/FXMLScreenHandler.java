@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class FXMLScreenHandler {
-	// Sửa thành Template Method được => Cần suy nghĩ thêm
+	// Không phải Template Method
 
 	protected FXMLLoader loader;
 	protected AnchorPane content;
