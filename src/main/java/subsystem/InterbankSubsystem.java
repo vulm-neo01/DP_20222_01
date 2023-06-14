@@ -1,6 +1,6 @@
 package subsystem;
 
-import entity.payment.CreditCard;
+import entity.payment.product.CreditCard;
 import entity.payment.PaymentTransaction;
 import subsystem.interbank.InterbankSubsystemController;
 

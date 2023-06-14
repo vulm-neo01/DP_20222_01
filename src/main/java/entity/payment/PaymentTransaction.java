@@ -1,5 +1,7 @@
 package entity.payment;
 
+import entity.payment.product.CreditCard;
+
 public class PaymentTransaction {
 	private String errorCode;
 	private CreditCard card;

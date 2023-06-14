@@ -7,8 +7,7 @@ import java.util.Map;
 import common.exception.InvalidCardException;
 import common.exception.PaymentException;
 import common.exception.UnrecognizedException;
-import entity.cart.Cart;
-import entity.payment.CreditCard;
+import entity.payment.product.CreditCard;
 import entity.payment.PaymentTransaction;
 import subsystem.InterbankInterface;
 import subsystem.InterbankSubsystem;
@@ -82,7 +81,7 @@ public class PaymentController extends BaseController {
 	 *         message.
 	 */
 	public Map<String, String> payOrder(int amount, String contents, String cardNumber, String cardHolderName,
-			String expirationDate, String securityCode) {
+			String expirationDate, String securityCode, String issueBank, String validDate) {
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "PAYMENT FAILED!");
 		try {

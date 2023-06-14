@@ -42,6 +42,12 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	private TextField expirationDate;
 
 	@FXML
+	private TextField issueBank;
+
+	@FXML
+	private TextField validFromDate;
+
+	@FXML
 	private TextField securityCode;
 
 	public PaymentScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
@@ -77,7 +83,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 		String contents = "pay order";
 		PaymentController ctrl = (PaymentController) getBController();
 		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
-				expirationDate.getText(), securityCode.getText());
+				expirationDate.getText(), securityCode.getText(), issueBank.getText(), validFromDate.getText());
 
 		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, ViewsConfig.RESULT_SCREEN_PATH, response);
 		resultScreen.setPreviousScreen(this);

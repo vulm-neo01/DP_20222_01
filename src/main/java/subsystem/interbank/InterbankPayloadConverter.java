@@ -1,7 +1,7 @@
 package subsystem.interbank;
 
 import common.exception.*;
-import entity.payment.CreditCard;
+import entity.payment.product.CreditCard;
 import entity.payment.PaymentTransaction;
 import utils.MyMap;
 
