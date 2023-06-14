@@ -3,9 +3,7 @@ package views.screen.payment;
 import controller.PaymentController;
 import entity.invoice.Invoice;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import utils.Utils;
@@ -31,6 +29,9 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 
 	@FXML
 	private Label pageTitle;
+
+	@FXML
+	private RadioButton payment;
 
 	@FXML
 	private TextField cardNumber;
@@ -82,7 +83,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	void confirmToPayOrder() throws IOException{
 		String contents = "pay order";
 		PaymentController ctrl = (PaymentController) getBController();
-		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
+		Map<String, String> response = ctrl.payOrder(payment.getText() ,invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
 				expirationDate.getText(), securityCode.getText(), issueBank.getText(), validFromDate.getText());
 
 		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, ViewsConfig.RESULT_SCREEN_PATH, response);

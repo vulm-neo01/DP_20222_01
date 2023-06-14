@@ -1,17 +1,17 @@
 package entity.payment;
 
-import entity.payment.product.CreditCard;
+import entity.payment.product.Card;
 
 public class PaymentTransaction {
 	private String errorCode;
-	private CreditCard card;
+	private Card card;
 	private String transactionId;
 	private String transactionContent;
 	private int amount;
 	private String createdAt;
 	
-	public PaymentTransaction(String errorCode, CreditCard card, String transactionId, String transactionContent,
-                              int amount, String createdAt) {
+	public PaymentTransaction(String errorCode, Card card, String transactionId, String transactionContent,
+							  int amount, String createdAt) {
 		super();
 		this.errorCode = errorCode;
 		this.card = card;
