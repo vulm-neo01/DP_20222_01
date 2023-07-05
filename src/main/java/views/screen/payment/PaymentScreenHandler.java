@@ -2,8 +2,13 @@ package views.screen.payment;
 
 import controller.PaymentController;
 import entity.invoice.Invoice;
+import entity.payment.ConcreteStategy.Card;
+import entity.payment.ConcreteStategy.Cash;
+import entity.payment.ConcreteStategy.EWallet;
+import entity.payment.ConcreteStategy.PaymentStrategy;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -25,6 +30,9 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	private Button btnConfirmPayment;
 
 	@FXML
+	private ComboBox chosingPayment;
+
+	@FXML
 	private ImageView loadingImage;
 
 	private Invoice invoice;
@@ -37,6 +45,17 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 
 	@FXML
 	private TextField holderName;
+
+	@FXML
+	private TextField name;
+	@FXML
+	private TextField address;
+	@FXML
+	private TextField phonenumber;
+	@FXML
+	private TextField walletId;
+	@FXML
+	private TextField code;
 
 	@FXML
 	private TextField expirationDate;
@@ -74,11 +93,19 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	}
 
 	void confirmToPayOrder() throws IOException{
+		PaymentStrategy ctrl = null;
 		String contents = "pay order";
-		PaymentController ctrl = (PaymentController) getBController();
-		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
-				expirationDate.getText(), securityCode.getText());
+		if(chosingPayment.equals("Credit Card")){
+			ctrl = new Card(invoice.getAmount(), contents, cardNumber.getText(),holderName.getText(),expirationDate.getText(),Integer.parseInt(securityCode.getText()));
 
+		} else if(chosingPayment.equals("Cash")){
+			ctrl = new Cash(invoice.getAmount(), contents, name.getText(), address.getText(), phonenumber.getText());
+
+		} else if(chosingPayment.equals("EWallet")){
+			ctrl = new EWallet(invoice.getAmount(), contents, walletId.getText(), code.getText());
+		}
+
+		Map<String, String> response = ctrl.order();
 		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, ViewsConfig.RESULT_SCREEN_PATH, response);
 		resultScreen.setPreviousScreen(this);
 		resultScreen.setHomeScreenHandler(homeScreenHandler);

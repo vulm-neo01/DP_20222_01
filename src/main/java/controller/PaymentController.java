@@ -93,7 +93,7 @@ public class PaymentController extends BaseController {
 					Integer.parseInt(securityCode));
 
 			this.interbank = new InterbankSubsystem();
-			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
+//			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
 
 			result.put("RESULT", "PAYMENT SUCCESSFUL!");
 			result.put("MESSAGE", "You have successfully paid the order!");

@@ -2,7 +2,7 @@ package subsystem;
 
 import common.exception.PaymentException;
 import common.exception.UnrecognizedException;
-import entity.payment.CreditCard;
+import entity.payment.ConcreteStategy.PaymentStrategy;
 import entity.payment.PaymentTransaction;
 
 /**
@@ -26,13 +26,13 @@ public interface InterbankInterface {
 	 * @throws UnrecognizedException if responded with an unknown error code or
 	 *                               something goes wrong
 	 */
-	public abstract PaymentTransaction payOrder(CreditCard card, int amount, String contents)
+	public abstract PaymentTransaction payOrder(PaymentStrategy payment, int amount, String contents)
 			throws PaymentException, UnrecognizedException;
 
 	/**
 	 * Refund, and then return the payment transaction
 	 * 
-	 * @param card     - the credit card which would be refunded to
+	 * @param payment     - the payment which would be refunded to
 	 * @param amount   - the amount to refund
 	 * @param contents - the transaction contents
 	 * @return {@link PaymentTransaction PaymentTransaction} - if the
@@ -41,7 +41,7 @@ public interface InterbankInterface {
 	 * @throws UnrecognizedException if responded with an unknown error code or
 	 *                               something goes wrong
 	 */
-	public abstract PaymentTransaction refund(CreditCard card, int amount, String contents)
+	public abstract PaymentTransaction refund(PaymentStrategy payment, int amount, String contents)
 			throws PaymentException, UnrecognizedException;
 
 }
