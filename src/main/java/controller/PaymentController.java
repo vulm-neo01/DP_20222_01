@@ -34,6 +34,7 @@ public class PaymentController extends BaseController {
 	/**
 	 * Represent the card used for payment
 	 */
+	//SOILD_OCP: khi thêm một phương thức thanh toán mới rhif cần phải sửa code
 	private CreditCard card;
 
 	/**

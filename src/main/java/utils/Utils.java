@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 //Vi phạm SRP
 public class Utils {
-
+//SOLID_SRP  2 phương thức không liên quan đến nhau
 	public static DateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	private static Logger LOGGER = getLogger(Utils.class.getName());
 	static {

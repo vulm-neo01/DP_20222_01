@@ -10,7 +10,8 @@ import entity.media.Media;
 // lớp quản lý giỏ hàng và lớp riêng để tính toán giỏ hàng, các phương thức để quản lý giỏ hàng như addCartMedia, removeCartMedia, emptyCart và
 // các phương thức để tính toán và trả về giá trị liên quan đến giỏ hàng như getTotalMedia, calSubtotal, checkAvailabilityOfProduct, checkMediaInCart.
 public class Cart {
-    
+    //SOLID_SRP : VỪa phải quản lý giỏ hàng vừa có phương thức tính toán, và check tồn lại đợn hàng
+
     private List<CartItem> lstCartItem;
 
     public Cart() {

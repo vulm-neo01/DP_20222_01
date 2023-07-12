@@ -20,7 +20,7 @@ public class DeliveryInfo {
         this.shippingInstructions = shippingInstructions;
         this.distanceCalculator = distanceCalculator;
     }
-
+//SOLID_OCP: Khi ccaafn thay đổi cách tính toán phí síp thì câdn phải sửa trực tiếp vào trong class
     public int calculateShippingFee(Order order) {
         int distance = distanceCalculator.calculateDistance(address, province);
         return (int) (distance * 1.2);

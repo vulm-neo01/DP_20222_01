@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
  * @author nguyenlm
  */
 public class PlaceOrderController extends BaseController {
-
+//SOLID_ SRP do vừa phải validate trường, vừa phải điều kiển trường dữ liệu
     /**
      * Just for logging purpose
      */
@@ -60,6 +60,7 @@ public class PlaceOrderController extends BaseController {
      * @throws InterruptedException
      * @throws IOException
      */
+    //SOILS_OCP: Khi thêm một trường nào đó cần validate thì cần phải thay đỏii code => tách ra một class mới
     public DeliveryInfo processDeliveryInfo(HashMap info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         LOGGER.info("Process Delivery Info");
         LOGGER.info(info.toString());

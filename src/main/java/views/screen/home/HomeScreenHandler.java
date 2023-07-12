@@ -37,6 +37,8 @@ import views.screen.popup.PopupScreen;
 
 
 public class HomeScreenHandler extends BaseScreenHandler implements Observer {
+    //SOLID_SRP: Màn hinhd có nhiều chức năngvuawf phải điều khiển màn hình, vừa phai xửa lý dữ liệu, các chức năng liên quan đến giỏ hàng
+    //thực hiện chức năng đăng nhập, cập nhật dũe liệu người dùng.
 
     public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
 

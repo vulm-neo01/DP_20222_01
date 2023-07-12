@@ -48,6 +48,7 @@ public class InterbankPayloadConverter {
      * @param responseText
      * @return
      */
+    //SOLID_OCP: Khi cần thêm một phương thức thanh ton th phải thay đổi code
     PaymentTransaction extractPaymentTransaction(String responseText) {
         MyMap response = convertJSONResponse(responseText);
 
