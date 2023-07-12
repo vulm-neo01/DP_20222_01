@@ -22,11 +22,24 @@ import subsystem.InterbankSubsystem;
  *
  */
 public class PaymentController extends BaseController {
+	//	VULM: Trong class này, chúng ta nên tách phần liên quan đến thanh toán và giao tiếp với
+	//	interbankInterface và một interface or abstract class riêng biệt để đảm bảo tính mở rộng
+	//  Ví dụ: public interface PaymentMethod ( void processPayment())
+
+	//	Sử dụng Dependency Injection để cung cấp các dependency CreditCard và InterbankInterface
+	//	cho PaymentController
+	//  Có thể sử dụng DI để tiêm đối tượng PaymentMethod vào PaymentController => Dễ dàng thay đổi
+	//	phương thức thanh toán và không cần thay đổi mã nguồn PaymentController.
 
 	/**
 	 * Represent the card used for payment
 	 */
+	//SOILD_OCP: khi thêm một phương thức thanh toán mới rhif cần phải sửa code
 	private CreditCard card;
+	// Vi phạm DIP do PaymentController đang phụ thuộc trực tiếp vào lớp CreditCard để tạo ra card
+	// Trong trường hợp muốn thay đổi hay mở rộng nhiều phương thức thanh toán hơn sẽ là không thể.
+	// Tạo một interface PaymentMethod, CreditCard hay các loại Card khác sẽ implements nó
+	// Trong PaymentController chỉ cần set loại payment và sử dụng.
 
 	/**
 	 * Represent the Interbank subsystem

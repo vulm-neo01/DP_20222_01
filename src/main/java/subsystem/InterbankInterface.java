@@ -12,6 +12,9 @@ import entity.payment.PaymentTransaction;
  * @author hieud
  * 
  */
+
+//Interface InterbankInterface có 2 method là payOrder và refund đều được sử dụng trong InterbankSubsystem
+// => KHÔNG vi phạm ISP
 public interface InterbankInterface {
 
 	/**

@@ -14,6 +14,9 @@ import java.util.Date;
 public class CDDAO extends MediaDAO {
 
     @Override
+    //LSP
+    //Ở lớp cha khi không tìm được data trong CSDL sẽ trả về null,
+    // ở đây khi ghi đè lại thì thay đỏi hành vi thành ném ra lỗi
     public Media getMediaById(int id) throws SQLException {
         String sql = "SELECT * FROM "+
                 "aims.CD " +

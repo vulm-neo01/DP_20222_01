@@ -5,6 +5,9 @@ import entity.media.Media;
 public class CartItem {
     
     private Media media;
+    // Có dấu hiệu vi phạm DIP tại đây. Do CartItem sử dụng trực tiếp Media
+    // Để chỉnh sửa trường hợp này, có thể đơn giản biến Media thành abstract class
+    // Khi này CartItem không phụ thuộc trực tiếp vào Media mà phụ thuộc vào abstract của nó.
     private int quantity;
     private int price;
 
