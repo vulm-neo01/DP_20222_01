@@ -104,6 +104,6 @@ public class PaymentController extends BaseController {
 	}
 	//SRP
 	public void emptyCart(){
-        SessionInformation.cartInstance.emptyCart();   //***common coupling
+        SessionInformation.cartInstance.emptyCart();
     }
 }

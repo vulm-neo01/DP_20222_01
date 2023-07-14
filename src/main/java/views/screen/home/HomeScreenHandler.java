@@ -219,7 +219,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
         try {
             if (requestQuantity > media.getQuantity()) throw new MediaNotAvailableException();
-            Cart cart = SessionInformation.cartInstance;   //**common coupling
+            //**common coupling
+            // Content Coupling
+            Cart cart = SessionInformation.cartInstance;
             // if media already in cart then we will increase the quantity by 1 instead of create the new cartMedia
             CartItem mediaInCart = getBController().checkMediaInCart(media);
             if (mediaInCart != null) {

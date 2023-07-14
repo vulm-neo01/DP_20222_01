@@ -26,7 +26,10 @@ public class Order {
     //Stamp coupling: cart
     public Order(Cart cart) {
         List<OrderItem> orderItems = new ArrayList<>();
-        for (Object object : SessionInformation.cartInstance.getListMedia()) {   //***common coupling
+        //***common coupling
+        for (Object object : SessionInformation.cartInstance.getListMedia()) {
+            // Vi phạm Content coupling do truy cập trực tiếp method. Điều này khiến cho
+            // Order phụ thuộc trực tiếp vào SessionInformation class và Cart class.
             CartItem cartItem = (CartItem) object;
             OrderItem orderItem = new OrderItem(cartItem.getMedia(),
                     cartItem.getQuantity(),
