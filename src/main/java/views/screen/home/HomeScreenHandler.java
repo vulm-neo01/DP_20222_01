@@ -38,7 +38,11 @@ import views.screen.popup.PopupScreen;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
-    public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());   //**common coupling
+    //**common coupling
+    // Communicational cohesion do nhiều chức năng
+    // Có thể cải thiện bằng cách tách chức năng liên quan đến hiển thị dữ liệu riêng
+
+    public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
 
     @FXML
     private Label numMediaInCart;

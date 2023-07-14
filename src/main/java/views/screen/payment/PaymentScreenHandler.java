@@ -19,7 +19,9 @@ import java.util.logging.Logger;
 
 public class PaymentScreenHandler extends BaseScreenHandler {
 
-	private static final Logger LOGGER = Utils.getLogger(PaymentScreenHandler.class.getName());   //**common coupling
+	//**common coupling
+	// Communicational cohesion
+	private static final Logger LOGGER = Utils.getLogger(PaymentScreenHandler.class.getName());
 
 	@FXML
 	private Button btnConfirmPayment;

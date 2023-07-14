@@ -29,6 +29,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 public class ShippingScreenHandler extends BaseScreenHandler {
+	// Procedural Cohesion
 
 	private static final Logger LOGGER = Utils.getLogger(ShippingScreenHandler.class.getName());   //**common coupling
 

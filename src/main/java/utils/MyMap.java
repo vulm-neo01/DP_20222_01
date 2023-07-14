@@ -13,6 +13,8 @@ import java.util.*;
  *
  */
 public class MyMap extends LinkedHashMap<String, Object> {
+
+	// Cũng tồn tại Communicational Cohesion
 	private static final long serialVersionUID = 1L;
 
 	/**
