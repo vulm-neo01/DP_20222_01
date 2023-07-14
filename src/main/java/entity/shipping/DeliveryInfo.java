@@ -21,6 +21,7 @@ public class DeliveryInfo {
         this.distanceCalculator = distanceCalculator;
     }
     // Stamp coupling: order k dùng đến
+    // có functional cohesion do cac phương thức có liên qian đến nhau do chúng cùng một mục đích tính toánchi phí vận chuển
     public int calculateShippingFee(Order order) {
         int distance = distanceCalculator.calculateDistance(address, province);
         return (int) (distance * 1.2);

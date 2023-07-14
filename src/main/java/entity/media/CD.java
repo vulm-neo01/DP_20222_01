@@ -61,7 +61,7 @@ public class CD extends Media {
         this.releasedDate = releasedDate;
         return this;
     }
-
+    //có coincidential cohesion do Phương thức này không liên quan đến class, nó cần pahir được cài trong lowps ui hợp hơn
     @Override
     public String toString() {
         String basicInformation = "{" +
