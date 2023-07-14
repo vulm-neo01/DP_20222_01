@@ -80,6 +80,7 @@ public class LoginScreenHandler extends BaseScreenHandler{
         }
     }
 
+    // Stamp coupling: K cần sử dụng tới biến truyền vào
     @FXML
     void backToHomeScreen(MouseEvent event) throws IOException, InterruptedException, SQLException {
         this.homeScreenHandler.show();

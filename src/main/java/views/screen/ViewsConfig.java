@@ -11,7 +11,10 @@ import java.util.Locale;
  * @author
  */
 public class ViewsConfig {
-
+    //Common coupling
+    //Biến PERCENT_VAT, REGULAR_FONT của class đang có common coupling
+    // do nó đang được khai báo với access modifier là public static nhưng không được khai báo final
+    // -> Giá trị của biến có thể bị thay đổi bởi hệ thống
     // static resource
     public static final String IMAGE_PATH = "src/main/resources/assets/images";
     public static final String INVOICE_SCREEN_PATH = "/views/fxml/invoice.fxml";

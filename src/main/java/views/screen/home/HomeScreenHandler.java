@@ -38,10 +38,10 @@ import views.screen.popup.PopupScreen;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
-    //**common coupling
     // Communicational cohesion do nhiều chức năng
     // Có thể cải thiện bằng cách tách chức năng liên quan đến hiển thị dữ liệu riêng
 
+    //Coincidental: k dùng đến
     public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
 
     @FXML

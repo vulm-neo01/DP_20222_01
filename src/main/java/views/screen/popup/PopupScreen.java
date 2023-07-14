@@ -67,9 +67,12 @@ public class PopupScreen extends BaseScreenHandler {
         delay.play();
     }
 
+    //co-incidental cohesion
+    //stamp-coupling
     protected void setupData(Object dto) throws Exception {
     }
 
+    //co-incidental cohesion
     protected void setupFunctionality() throws Exception {
     }
 }

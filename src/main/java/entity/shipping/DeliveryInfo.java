@@ -4,7 +4,8 @@ import entity.order.Order;
 import org.example.DistanceCalculator;
 
 public class DeliveryInfo {
-
+    // content coupling: Các lớp cùng package và lớp con có thể truy xuất data trực tiếp
+    // ->nên để private
     protected String name;
     protected String phone;
     protected String province;

@@ -18,7 +18,7 @@ import views.screen.popup.PopupScreen;
 public class IntroScreenHandler extends BaseScreenHandler {
     // Functional Cohesion
 
-    private static final Logger LOGGER = Utils.getLogger(IntroScreenHandler.class.getName());   //**common coupling
+    private static final Logger LOGGER = Utils.getLogger(IntroScreenHandler.class.getName());   //**co-incidental cohesion
 
 
     @FXML
@@ -39,7 +39,7 @@ public class IntroScreenHandler extends BaseScreenHandler {
         }
     }
 
-
+    // stamp coupling:  Chưa có implement
     protected void setupData(Object dto) throws Exception {
         return;
     }

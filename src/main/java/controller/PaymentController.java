@@ -35,6 +35,7 @@ public class PaymentController extends BaseController {
 	 */
 	private InterbankInterface interbank;
 
+	//Coincidental: nên tách thành hàm helper
 	/**
 	 * Validate the input date which should be in the format "mm/yy", and then
 	 * return a {@link String String} representing the date in the

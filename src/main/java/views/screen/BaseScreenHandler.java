@@ -15,9 +15,8 @@ import views.screen.home.HomeScreenHandler;
 import views.screen.popup.PopupScreen;
 
 public abstract class BaseScreenHandler extends FXMLScreenHandler {
-	// Procedural cohesion
-
-	private static final Logger LOGGER = Utils.getLogger(BaseScreenHandler.class.getName());   //**common coupling
+	// Coincidental cohesion
+	private static final Logger LOGGER = Utils.getLogger(BaseScreenHandler.class.getName());
 
 
 	private Scene scene;
@@ -60,6 +59,8 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 		return this.bController;
 	}
 
+	//Coincidental
+	//do nó chỉ được khởi tạo mà không được sử dụng trong class và các sub-class
 	public void forward(Hashtable messages) {
 		this.messages = messages;
 	}
