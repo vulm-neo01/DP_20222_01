@@ -14,11 +14,11 @@ public class Cart {
     public Cart() {
         lstCartItem = new ArrayList<>();
     }
-
+    //có data coupling do lớp Cart có dử dụng dữ liệu của lớp CartItem để thêm một đối tượng từ danh sách
     public void addCartMedia(CartItem cm){
         lstCartItem.add(cm);
     }
-
+    //có data coupling do lớp Cart có dử dụng dữ liệu của lớp CartItem để xoá một đối tượng từ danh sách
     public void removeCartMedia(CartItem cm){
         lstCartItem.remove(cm);
     }
@@ -30,7 +30,7 @@ public class Cart {
     public void emptyCart(){
         lstCartItem.clear();
     }
-
+    // có data coupling do 2 lớp tương tác với nhau quan dữ liệu của quantity
     public int getTotalMedia(){
         int total = 0;
         for (Object obj : lstCartItem) {
@@ -39,7 +39,7 @@ public class Cart {
         }
         return total;
     }
-
+    // có data coupling do 2 lớp tương tác với nhau quan dữ liệu của quantity
     public int calSubtotal(){
         int total = 0;
         for (Object obj : lstCartItem) {

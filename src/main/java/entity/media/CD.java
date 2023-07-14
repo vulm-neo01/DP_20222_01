@@ -17,7 +17,6 @@ public class CD extends Media {
     public CD() throws SQLException{
 
     }
-
     public CD(int id, String title, String category, int price, int quantity, String type, String artist,
             String recordLabel, String musicType, Date releasedDate) throws SQLException{
         super(id, title, category, price, quantity, type);
