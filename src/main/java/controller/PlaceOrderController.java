@@ -21,6 +21,8 @@ import java.util.regex.Pattern;
  * This class controls the flow of place order usecase in our AIMS project
  * @author nguyenlm
  */
+
+//Functional Cohesion vì các method trong class này làm việc cùng nhau và đều nhằm mục đích xử lý logic Place Order
 public class PlaceOrderController extends BaseController {
 
     /**
