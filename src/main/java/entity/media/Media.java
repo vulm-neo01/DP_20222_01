@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class Media {
 
-    private static Logger LOGGER = Utils.getLogger(Media.class.getName());
+    private static Logger LOGGER = Utils.getLogger(Media.class.getName());   //***common coupling
 
     protected Statement stm;
     protected int id;
@@ -28,7 +28,7 @@ public class Media {
     protected boolean rushSupported;
 
     public Media() throws SQLException {
-        stm = AIMSDB.getConnection().createStatement();
+        stm = AIMSDB.getConnection().createStatement();   //***common coupling
     }
 
     public Media (int id, String title, String category, int price, int quantity, String type) throws SQLException{

@@ -15,7 +15,7 @@ import java.util.List;
 public class MediaDAO {
 
     public List getAllMedia() throws SQLException {
-        Statement stm = AIMSDB.getConnection().createStatement();
+        Statement stm = AIMSDB.getConnection().createStatement();   //***common coupling
         ResultSet res = stm.executeQuery("select * from Media");
         ArrayList medium = new ArrayList<>();
         while (res.next()) {
@@ -34,7 +34,7 @@ public class MediaDAO {
 
     public Media getMediaById(int id) throws SQLException {
         String sql = "SELECT * FROM Media ;";
-        Statement stm = AIMSDB.getConnection().createStatement();
+        Statement stm = AIMSDB.getConnection().createStatement();   //***common coupling
         ResultSet res = stm.executeQuery(sql);
 
         if (res.next()) {
@@ -52,7 +52,7 @@ public class MediaDAO {
 
     // Stamp coupling: tbname
     public void updateMediaFieldById(String tbname, int id, String field, Object value) throws SQLException {
-        Statement stm = AIMSDB.getConnection().createStatement();
+        Statement stm = AIMSDB.getConnection().createStatement();   //***common coupling
         if (value instanceof String){
             value = "\"" + value + "\"";
         }

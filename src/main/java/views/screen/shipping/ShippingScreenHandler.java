@@ -30,7 +30,7 @@ import java.util.logging.Logger;
 
 public class ShippingScreenHandler extends BaseScreenHandler {
 
-	private static final Logger LOGGER = Utils.getLogger(ShippingScreenHandler.class.getName());
+	private static final Logger LOGGER = Utils.getLogger(ShippingScreenHandler.class.getName());   //**common coupling
 
 	@FXML
 	private Label screenTitle;
@@ -59,17 +59,17 @@ public class ShippingScreenHandler extends BaseScreenHandler {
 			setupFunctionality();
 		} catch (IOException ex) {
 			LOGGER.info(ex.getMessage());
-			PopupScreen.error("Error when loading resources.");
+			PopupScreen.error("Error when loading resources.");   //**common coupling
 		} catch (Exception ex) {
 			LOGGER.info(ex.getMessage());
-			PopupScreen.error(ex.getMessage());
+			PopupScreen.error(ex.getMessage());   //**common coupling
 		}
 	}
 
 	protected void setupData(Object dto) throws Exception {
 		this.order = (Order) dto;
-		this.province.getItems().addAll(ShippingConfigs.PROVINCES);
-		this.province.getSelectionModel().select(ShippingConfigs.RUSH_SUPPORT_PROVINCES_INDEX[0]);
+		this.province.getItems().addAll(ShippingConfigs.PROVINCES);   //**common coupling
+		this.province.getSelectionModel().select(ShippingConfigs.RUSH_SUPPORT_PROVINCES_INDEX[0]);   //**common coupling
 	}
 
 	protected void setupFunctionality() throws Exception {
@@ -91,7 +91,7 @@ public class ShippingScreenHandler extends BaseScreenHandler {
 		
 		// create invoice screen
 		Invoice invoice = getBController().createInvoice(order);
-		BaseScreenHandler InvoiceScreenHandler = new InvoiceScreenHandler(this.stage, ViewsConfig.INVOICE_SCREEN_PATH, invoice);
+		BaseScreenHandler InvoiceScreenHandler = new InvoiceScreenHandler(this.stage, ViewsConfig.INVOICE_SCREEN_PATH, invoice);   //**common coupling
 		InvoiceScreenHandler.setPreviousScreen(this);
 		InvoiceScreenHandler.setHomeScreenHandler(homeScreenHandler);
 		InvoiceScreenHandler.setScreenTitle("Invoice Screen");

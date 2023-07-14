@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 
 public class InvoiceScreenHandler extends BaseScreenHandler {
 
-	private static Logger LOGGER = Utils.getLogger(InvoiceScreenHandler.class.getName());
+	private static Logger LOGGER = Utils.getLogger(InvoiceScreenHandler.class.getName());   //**common coupling
 
 	@FXML
 	private Label pageTitle;
@@ -64,10 +64,10 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 			setupFunctionality();
 		} catch (IOException ex) {
 			LOGGER.info(ex.getMessage());
-			PopupScreen.error("Error when loading resources.");
+			PopupScreen.error("Error when loading resources.");   //**common coupling
 		} catch (Exception ex) {
 			LOGGER.info(ex.getMessage());
-			PopupScreen.error(ex.getMessage());
+			PopupScreen.error(ex.getMessage());   //**common coupling
 		}
 	}
 
@@ -82,13 +82,13 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 		instructions.setText(deliveryInfo.getShippingInstructions());
 		address.setText(deliveryInfo.getAddress());
 
-		subtotal.setText(ViewsConfig.getCurrencyFormat(order.getSubtotal()));
-		shippingFees.setText(ViewsConfig.getCurrencyFormat(order.getShippingFees()));
-		total.setText(ViewsConfig.getCurrencyFormat(order.getTotal()));
+		subtotal.setText(ViewsConfig.getCurrencyFormat(order.getSubtotal()));   //**common coupling
+		shippingFees.setText(ViewsConfig.getCurrencyFormat(order.getShippingFees()));   //**common coupling
+		total.setText(ViewsConfig.getCurrencyFormat(order.getTotal()));   //**common coupling
 
 		invoice.getOrder().getListOrderMedia().forEach(orderMedia -> {
 			try {
-				MediaInvoiceScreenHandler mis = new MediaInvoiceScreenHandler(ViewsConfig.INVOICE_MEDIA_SCREEN_PATH);
+				MediaInvoiceScreenHandler mis = new MediaInvoiceScreenHandler(ViewsConfig.INVOICE_MEDIA_SCREEN_PATH);   //**common coupling
 				mis.setOrderItem((OrderItem) orderMedia);
 				vboxItems.getChildren().add(mis.getContent());
 			} catch (IOException | SQLException e) {
@@ -104,7 +104,7 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 
 	@FXML
 	void confirmInvoice(MouseEvent event) throws IOException {
-		BaseScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, ViewsConfig.PAYMENT_SCREEN_PATH, invoice);
+		BaseScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, ViewsConfig.PAYMENT_SCREEN_PATH, invoice);   //**common coupling
 		paymentScreen.setBController(new PaymentController());
 		paymentScreen.setPreviousScreen(this);
 		paymentScreen.setHomeScreenHandler(homeScreenHandler);

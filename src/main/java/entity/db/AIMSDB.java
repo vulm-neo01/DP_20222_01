@@ -10,7 +10,7 @@ import utils.*;
 
 public class AIMSDB {
 
-	private static Logger LOGGER = Utils.getLogger(Connection.class.getName());
+	private static Logger LOGGER = Utils.getLogger(Connection.class.getName());   //**common coupling
 	private static Connection connect;
 	// TODO: refactor Utils -> limit connections
     public static Connection getConnection() {

@@ -27,7 +27,7 @@ import views.screen.ViewsConfig;
 
 public class MediaHandler extends FXMLScreenHandler {
 
-	private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());
+	private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());   //**common coupling
 
 	@FXML
 	protected HBox hboxMedia;
@@ -73,7 +73,7 @@ public class MediaHandler extends FXMLScreenHandler {
 
 	private void setMediaInfo() {
 		title.setText(cartItem.getMedia().getTitle());
-		price.setText(ViewsConfig.getCurrencyFormat(cartItem.getPrice()));
+		price.setText(ViewsConfig.getCurrencyFormat(cartItem.getPrice()));   //**common coupling
 		File file = new File(cartItem.getMedia().getImageURL());
 		Image im = new Image(file.toURI().toString());
 		image.setImage(im);
@@ -82,7 +82,7 @@ public class MediaHandler extends FXMLScreenHandler {
 		image.setFitWidth(92);
 
 		// add delete button
-		btnDelete.setFont(ViewsConfig.REGULAR_FONT);
+		btnDelete.setFont(ViewsConfig.REGULAR_FONT);   //**common coupling
 		btnDelete.setOnMouseClicked(e -> {
 			try {
 				SessionInformation.cartInstance.removeCartMedia(cartItem); // update user cart
@@ -116,7 +116,7 @@ public class MediaHandler extends FXMLScreenHandler {
 				cartItem.setQuantity(numOfProd);
 
 				// update the total of mediaCart
-				price.setText(ViewsConfig.getCurrencyFormat(numOfProd* cartItem.getPrice()));
+				price.setText(ViewsConfig.getCurrencyFormat(numOfProd* cartItem.getPrice()));   //**common coupling
 
 				// update subtotal and amount of Cart
 				cartScreen.updateCartAmount();

@@ -38,7 +38,7 @@ import views.screen.popup.PopupScreen;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
-    public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
+    public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());   //**common coupling
 
     @FXML
     private Label numMediaInCart;
@@ -77,10 +77,10 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             setupFunctionality();
         } catch (IOException ex) {
             LOGGER.info(ex.getMessage());
-            PopupScreen.error("Error when loading resources.");
+            PopupScreen.error("Error when loading resources.");   //**common coupling
         } catch (Exception ex) {
             LOGGER.info(ex.getMessage());
-            PopupScreen.error(ex.getMessage());
+            PopupScreen.error(ex.getMessage());   //**common coupling
         }
     }
 
@@ -100,7 +100,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             this.homeItems = new ArrayList<>();
             for (Object object : medium) {
                 Media media = (Media)object;
-                MediaHandler m = new MediaHandler(ViewsConfig.HOME_MEDIA_PATH, media);
+                MediaHandler m = new MediaHandler(ViewsConfig.HOME_MEDIA_PATH, media);   //**common coupling
                 m.attach(this);
                 this.homeItems.add(m);
             }
@@ -120,7 +120,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             CartScreenHandler cartScreen;
             try {
                 LOGGER.info("User clicked to view cart");
-                cartScreen = new CartScreenHandler(this.stage, ViewsConfig.CART_SCREEN_PATH);
+                cartScreen = new CartScreenHandler(this.stage, ViewsConfig.CART_SCREEN_PATH);   //**common coupling
                 cartScreen.setHomeScreenHandler(this);
                 cartScreen.setBController(new ViewCartController());
                 cartScreen.requestToViewCart(this);
@@ -150,11 +150,11 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
     public void setImage() {
         // fix image path caused by fxml
-        File file1 = new File(ViewsConfig.IMAGE_PATH + "/" + "Logo.png");
+        File file1 = new File(ViewsConfig.IMAGE_PATH + "/" + "Logo.png");   //**common coupling
         Image img1 = new Image(file1.toURI().toString());
         aimsImage.setImage(img1);
 
-        File file2 = new File(ViewsConfig.IMAGE_PATH + "/" + "cart.png");
+        File file2 = new File(ViewsConfig.IMAGE_PATH + "/" + "cart.png");   //**common coupling
         Image img2 = new Image(file2.toURI().toString());
         cartImage.setImage(img2);
     }
@@ -219,7 +219,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
         try {
             if (requestQuantity > media.getQuantity()) throw new MediaNotAvailableException();
-            Cart cart = SessionInformation.cartInstance;
+            Cart cart = SessionInformation.cartInstance;   //**common coupling
             // if media already in cart then we will increase the quantity by 1 instead of create the new cartMedia
             CartItem mediaInCart = getBController().checkMediaInCart(media);
             if (mediaInCart != null) {
@@ -233,12 +233,12 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             // subtract the quantity and redisplay
             media.setQuantity(media.getQuantity() - requestQuantity);
             numMediaInCart.setText(cart.getTotalMedia() + " media");
-            PopupScreen.success("The media " + media.getTitle() + " added to Cart");
+            PopupScreen.success("The media " + media.getTitle() + " added to Cart");   //**common coupling
         } catch (MediaNotAvailableException exp) {
             try {
                 String message = "Not enough media:\nRequired: " + requestQuantity + "\nAvail: " + media.getQuantity();
                 LOGGER.severe(message);
-                PopupScreen.error(message);
+                PopupScreen.error(message);   //**common coupling
             } catch (Exception e) {
                 LOGGER.severe("Cannot add media to cart: ");
             }
@@ -258,7 +258,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             loginScreen.show();
         } catch (Exception ex) {
             try {
-                PopupScreen.error("Cant trigger Login");
+                PopupScreen.error("Cant trigger Login");   //**common coupling
             } catch (Exception ex1) {
                 LOGGER.severe("Cannot login");
                 ex.printStackTrace();
