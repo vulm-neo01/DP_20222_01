@@ -11,7 +11,6 @@ import entity.media.Media;
  * @author nguyenlm
  */
 
-//
 public class BaseController {
     
     /**

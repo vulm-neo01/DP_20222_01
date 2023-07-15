@@ -4,6 +4,7 @@ package entity.payment;
  * @author
  */
 public class CreditCard {
+    // SOLID_OCP: Vi phạm OCP do hệ thống khó mở rộng để thêm các hình thức thanh toán khác (vd: Cash, EWallet,...)
 
     private String cardCode;
     private String owner;

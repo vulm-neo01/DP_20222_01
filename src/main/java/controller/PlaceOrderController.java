@@ -61,7 +61,7 @@ public class PlaceOrderController extends BaseController {
      * @throws IOException
      */
 
-    //SOLID_OCP: Khi thêm một trường nào đó cần validate thì cần phải thay đổi code => tách ra một class mới
+    //SOLID_OCP: Phụ thuộc vào distanceCalculator, khiến việc thay đổi mở rộng trong tương lai phải sửa trực tiếp
   
     public DeliveryInfo processDeliveryInfo(HashMap info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         LOGGER.info("Process Delivery Info");

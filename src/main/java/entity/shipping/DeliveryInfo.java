@@ -21,7 +21,6 @@ public class DeliveryInfo {
         this.distanceCalculator = distanceCalculator;
     }
 
-    //SOLID_OCP: Khi cần thay đổi cách tính toán phí ship thì cần phải sửa trực tiếp vào trong class
     //SOLID_SRP: Đây là một entity nên việc đưa hàm tính ShippingFee là thừa thãi và không cần thiết.
 
     public int calculateShippingFee(Order order) {
