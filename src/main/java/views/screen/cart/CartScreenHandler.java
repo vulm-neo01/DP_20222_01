@@ -27,10 +27,6 @@ import views.screen.popup.PopupScreen;
 import views.screen.shipping.ShippingScreenHandler;
 
 public class CartScreenHandler extends BaseScreenHandler {
-	//**common coupling
-
-	// Communicational cohesion vì các phương thức trong lớp không liên quan chặt chẽ với nhau,
-	// Có cả logic xử lý giao diện (setupFunctionality) va xử lý logic (requestToViewCart, requestToPlaceOrder,..)
 	private static Logger LOGGER = Utils.getLogger(CartScreenHandler.class.getName());
 
 	@FXML
@@ -63,16 +59,16 @@ public class CartScreenHandler extends BaseScreenHandler {
 			setupFunctionality();
 		} catch (IOException ex) {
 			LOGGER.info(ex.getMessage());
-			PopupScreen.error("Error when loading resources.");   //**common coupling
+			PopupScreen.error("Error when loading resources.");
 		} catch (Exception ex) {
 			LOGGER.info(ex.getMessage());
-			PopupScreen.error(ex.getMessage());   //**common coupling
+			PopupScreen.error(ex.getMessage());
 		}
 	}
 
 	protected void setupFunctionality() throws Exception {
 		// fix relative image path caused by fxml
-		File file = new File(ViewsConfig.IMAGE_PATH + "/Logo.png");   //**common coupling
+		File file = new File(ViewsConfig.IMAGE_PATH + "/Logo.png");
 		Image im = new Image(file.toURI().toString());
 		aimsImage.setImage(im);
 
@@ -126,7 +122,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 
 			// display shipping form
 			ShippingScreenHandler shippingScreenHandler = new ShippingScreenHandler(
-					this.stage, ViewsConfig.SHIPPING_SCREEN_PATH, order);   //**common coupling
+					this.stage, ViewsConfig.SHIPPING_SCREEN_PATH, order);
 			shippingScreenHandler.setPreviousScreen(this);
 			shippingScreenHandler.setHomeScreenHandler(homeScreenHandler);
 			shippingScreenHandler.setScreenTitle("Shipping Screen");

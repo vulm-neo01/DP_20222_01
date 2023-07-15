@@ -31,13 +31,13 @@ public class InterbankPayloadConverter {
             // TODO Auto-generated catch block
             throw new InvalidCardException();
         }
-        transaction.put("command", InterbankConfigs.PAY_COMMAND);   //**common coupling
+        transaction.put("command", InterbankConfigs.PAY_COMMAND);
         transaction.put("transactionContent", contents);
         transaction.put("amount", amount);
         transaction.put("createdAt", getToday());
 
         Map<String, Object> requestMap = new MyMap();
-        requestMap.put("version", InterbankConfigs.VERSION);   //**common coupling
+        requestMap.put("version", InterbankConfigs.VERSION);
         requestMap.put("transaction", transaction);
 
         return ((MyMap) requestMap).toJSON();

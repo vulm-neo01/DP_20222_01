@@ -20,7 +20,7 @@ public class DVDDAO extends MediaDAO {
                 "INNER JOIN aims.Media " +
                 "ON Media.id = DVD.id " +
                 "where Media.id = " + id + ";";
-        ResultSet res = AIMSDB.getConnection().createStatement().executeQuery(sql);   //***common coupling
+        ResultSet res = AIMSDB.getConnection().createStatement().executeQuery(sql);
         if(res.next()) {
 
             // from media table

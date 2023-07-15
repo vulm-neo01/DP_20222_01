@@ -36,7 +36,6 @@ public class PlaceOrderController extends BaseController {
      */
     public void placeOrder() throws SQLException {
         //***common coupling
-        // content-coupling
         SessionInformation.cartInstance.checkAvailabilityOfProduct();
     }
 
@@ -47,7 +46,6 @@ public class PlaceOrderController extends BaseController {
      */
     public Order createOrder() throws SQLException {
         //***common coupling
-        // content-coupling
         return new Order(SessionInformation.cartInstance);
     }
 

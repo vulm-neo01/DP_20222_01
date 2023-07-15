@@ -19,11 +19,11 @@ import java.util.logging.Logger;
 
 public class ApplicationProgrammingInterface {
 
-	// Communicational cohesion do các thành phần trong module trao đổi thông tin với nhau. Cụ thể là
-	// get sử dụng setupConnection(url)
+	// Logical cohesion do các thành phần trong module chỉ liên kết với nhau về logic gọi API ngoài hệ thống
+	// còn không có liên kết về chức năng
 
 	public static DateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-	private static Logger LOGGER = Utils.getLogger(Utils.class.getName());   //**common coupling   
+	private static Logger LOGGER = Utils.getLogger(Utils.class.getName()); 
 
 	public static String get(String url, String token) throws Exception {
 		LOGGER.info("Request URL: " + url + "\n");

@@ -13,7 +13,6 @@ public class OrderItem {
         this.quantity = quantity;
         this.price = price;
     }
-    //có coincidential cohesion do Phương thức này không liên quan đến class, nó cần pahir được cài trong lowps ui hợp hơn
     @Override
     public String toString() {
         return "{" +

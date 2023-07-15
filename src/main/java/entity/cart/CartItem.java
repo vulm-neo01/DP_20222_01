@@ -17,7 +17,6 @@ public class CartItem {
         this.quantity = quantity;
         this.price = price;
     }
-    // đoạn code này có Communicational cohesion do tất cả các phương thức getter chi cùng thao tác trên một cơ sở dữ liệu, chúng không có liên quan các tính năng với nhau
     public Media getMedia() {
         return this.media;
     }

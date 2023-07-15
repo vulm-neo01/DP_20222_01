@@ -38,8 +38,6 @@ import views.screen.popup.PopupScreen;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
-    // Communicational cohesion do nhiều chức năng
-    // Có thể cải thiện bằng cách tách chức năng liên quan đến hiển thị dữ liệu riêng
 
     //Coincidental: k dùng đến
     public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
@@ -224,7 +222,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         try {
             if (requestQuantity > media.getQuantity()) throw new MediaNotAvailableException();
             //**common coupling
-            // Content Coupling
             Cart cart = SessionInformation.cartInstance;
             // if media already in cart then we will increase the quantity by 1 instead of create the new cartMedia
             CartItem mediaInCart = getBController().checkMediaInCart(media);

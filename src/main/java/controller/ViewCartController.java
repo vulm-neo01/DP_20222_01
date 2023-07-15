@@ -8,7 +8,6 @@ import entity.cart.Cart;
  * This class controls the flow of events when users view the Cart
  * @author nguyenlm
  */
-//Communicational Cohesion vì chúng đều sử dụng dữ liệu trong entity cart
 public class ViewCartController extends BaseController{
     
     /**
@@ -17,7 +16,6 @@ public class ViewCartController extends BaseController{
      */
     public void checkAvailabilityOfProduct() throws SQLException{
         //***common coupling
-        // content-coupling
         SessionInformation.cartInstance.checkAvailabilityOfProduct();
     }
 
@@ -27,7 +25,6 @@ public class ViewCartController extends BaseController{
      */
     public int getCartSubtotal(){
         //***common coupling
-        // content-coupling
         int subtotal = SessionInformation.cartInstance.calSubtotal();
         return subtotal;
     }

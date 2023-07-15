@@ -14,7 +14,6 @@ import java.util.*;
  */
 public class MyMap extends LinkedHashMap<String, Object> {
 
-	// Cũng tồn tại Communicational Cohesion
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -71,7 +70,7 @@ public class MyMap extends LinkedHashMap<String, Object> {
 		fields.addAll(Arrays.asList(obj.getClass().getSuperclass().getDeclaredFields()));
 
 		for (Field field : fields) {
-			field.setAccessible(true); //Content coupling
+			field.setAccessible(true);
 			Object value = field.get(obj);
 			try {
 				if (!value.getClass().getPackage().getName().startsWith("java")) {

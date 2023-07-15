@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class Media {
 
-    private static Logger LOGGER = Utils.getLogger(Media.class.getName());   //***common coupling
+    private static Logger LOGGER = Utils.getLogger(Media.class.getName());
 
     protected Statement stm;
     protected int id;
@@ -28,7 +28,7 @@ public class Media {
     protected boolean rushSupported;
 
     public Media() throws SQLException {
-        stm = AIMSDB.getConnection().createStatement();   //***common coupling
+        stm = AIMSDB.getConnection().createStatement();
     }
 
     public Media (int id, String title, String category, int price, int quantity, String type) throws SQLException{
@@ -47,8 +47,6 @@ public class Media {
 
     public int getQuantity() throws SQLException {
         int updated_quantity = new MediaDAO().getMediaById(id).quantity;
-//        Đoạn code trên có vẻ như vi phạm Content Coupling vì nó truy cập trực tiếp vào lớp
-//        MediaDAO và phuơng thức getMediaById() của nó => phụ thuộc giữa 2 lớp.
         this.quantity = updated_quantity;
         return updated_quantity;
     }

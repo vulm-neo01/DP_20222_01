@@ -11,7 +11,6 @@ import entity.media.Media;
  * @author nguyenlm
  */
 
-//Communicational Cohesion vì chúng đều sử dụng dữ liệu trong entity cart
 public class BaseController {
     
     /**

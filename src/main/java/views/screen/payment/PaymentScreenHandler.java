@@ -20,7 +20,6 @@ import java.util.logging.Logger;
 public class PaymentScreenHandler extends BaseScreenHandler {
 
 	//**common coupling
-	// Communicational cohesion
 	private static final Logger LOGGER = Utils.getLogger(PaymentScreenHandler.class.getName());
 
 	@FXML

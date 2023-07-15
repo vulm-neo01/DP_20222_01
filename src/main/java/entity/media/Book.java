@@ -104,7 +104,6 @@ public class Book extends Media {
         this.bookCategory = bookCategory;
         return this;
     }
-    //có coincidential cohesion do Phương thức này không liên quan đến class, nó cần pahir được cài trong lowps ui hợp hơn
     @Override
     public String toString() {
         String basicInformation = "{" +

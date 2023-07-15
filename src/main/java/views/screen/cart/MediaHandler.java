@@ -28,7 +28,7 @@ import views.screen.ViewsConfig;
 public class MediaHandler extends FXMLScreenHandler {
 	// Functional cohesion
 
-	private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());   //**common coupling
+	private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());
 
 	@FXML
 	protected HBox hboxMedia;
@@ -86,7 +86,6 @@ public class MediaHandler extends FXMLScreenHandler {
 		btnDelete.setFont(ViewsConfig.REGULAR_FONT);   //**common coupling
 		btnDelete.setOnMouseClicked(e -> {
 			try {
-				// Có thể vi phạm Content Coupling như phần Controller
 				SessionInformation.cartInstance.removeCartMedia(cartItem); // update user cart
 				cartScreen.updateCart(); // re-display user cart
 				LOGGER.info("Deleted " + cartItem.getMedia().getTitle() + " from the cart");

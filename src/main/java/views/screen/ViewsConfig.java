@@ -11,9 +11,6 @@ import java.util.Locale;
  * @author
  */
 public class ViewsConfig {
-    //Common coupling
-    //Biến PERCENT_VAT, REGULAR_FONT của class đang có common coupling
-    // do nó đang được khai báo với access modifier là public static nhưng không được khai báo final
     // -> Giá trị của biến có thể bị thay đổi bởi hệ thống
     // static resource
     public static final String IMAGE_PATH = "src/main/resources/assets/images";
@@ -29,7 +26,9 @@ public class ViewsConfig {
     public static final String HOME_PATH  = "/views/fxml/home.fxml";
     public static final String HOME_MEDIA_PATH = "/views/fxml/media_home.fxml";
     public static final String POPUP_PATH = "/views/fxml/popup.fxml";
-
+    
+    //Biến PERCENT_VAT, REGULAR_FONT của class đang có common coupling
+    // do nó đang được khai báo với access modifier là public static nhưng không được khai báo final
     public static float PERCENT_VAT = 10;
 
     public static Font REGULAR_FONT = Font.font("Segoe UI", FontWeight.NORMAL, FontPosture.REGULAR, 24);
