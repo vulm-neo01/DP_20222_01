@@ -16,6 +16,7 @@ import entity.payment.PaymentTransaction;
 // SOLID_ISP: Interface InterbankInterface có 2 method là payOrder và refund đều được sử dụng trong InterbankSubsystem
 // => KHÔNG vi phạm ISP
 public interface InterbankInterface {
+	// SOLID_DIP: Tương tự phụ thuộc vào CreditCard
 
 	/**
 	 * Pay order, and then return the payment transaction

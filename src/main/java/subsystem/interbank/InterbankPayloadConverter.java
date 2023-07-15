@@ -14,6 +14,7 @@ import java.util.Map;
  * @author
  */
 public class InterbankPayloadConverter {
+    // SOLID_DIP: Tương tự phụ thuộc vào CreditCard
 
     /**
      * Convert from native entity into interbank required format

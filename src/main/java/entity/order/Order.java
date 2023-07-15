@@ -17,10 +17,9 @@ public class Order {
     private int tax;
     private List orderMediaList;
     protected DeliveryInfo deliveryInfo;
-    // DIP: Ở đây nên tạo DeliveryInfoIml (interface) để Order phụ thuộc vào, còn DeliveryInfo implements
+    // SOLID_DIP: Ở đây nên tạo DeliveryInfoIml (interface) để Order phụ thuộc vào, còn DeliveryInfo implements
     // DeliveryInfoIml. Như vậy sẽ đảm bảo nếu khi cần thay đổi sẽ không bị ảnh hưởng quá nhiều
-
-    // => Không chắc chắn về DIP
+    // Dù được coi là module cùng cấp nhưng vẫn có thể áp dụng DIP để giảm sự phụ thuộc chặt chẽ giữa chúng.
 
     public Order() {
         this.shippingFees = 0;

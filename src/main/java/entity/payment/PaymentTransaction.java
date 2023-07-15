@@ -4,7 +4,7 @@ public class PaymentTransaction {
 	private String errorCode;
 	// SOLID_OCP: Tương tự CreditCard, khó mở rộng khi thêm các hình thức thanh toán khác
 	private CreditCard card;
-	// Vi phạm DIP do PaymentTransaction đang phụ thuộc trực tiếp vào lớp CreditCard để tạo ra card
+	// SOLID_DIP: Vi phạm DIP do PaymentTransaction đang phụ thuộc trực tiếp vào lớp CreditCard để tạo ra card
 	// Trong trường hợp muốn thay đổi hay mở rộng nhiều phương thức thanh toán hơn sẽ là không thể.
 	// Tạo một interface PaymentMethod, CreditCard hay các loại Card khác sẽ implements nó
 	// Trong PaymentTransaction chỉ cần set loại payment và sử dụng.

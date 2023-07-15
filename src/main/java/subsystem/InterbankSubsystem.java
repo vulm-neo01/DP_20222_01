@@ -12,7 +12,7 @@ import subsystem.interbank.InterbankSubsystemController;
  *
  */
 public class InterbankSubsystem implements InterbankInterface {
-
+	//SOLID_DIP: Tương tự do phụ thuộc vào CreditCard
 	/**
 	 * Represent the controller of the subsystem
 	 */
