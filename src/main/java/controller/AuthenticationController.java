@@ -22,7 +22,8 @@ import java.util.Objects;
 
 public class AuthenticationController extends BaseController {
 
-    //SRP
+    //SOLID_SRP: Vi phạm do hàm Authentication hiện tại có nhiệm vụ xử lý các yêu cầu liên quan đến authen
+    //          không nên bao gồm cả việc có method sinh mã băm sử dụng hàm MD5.
     public boolean isAnonymousSession() {
         try {
             getMainUser();

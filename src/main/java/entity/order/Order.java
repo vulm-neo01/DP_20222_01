@@ -20,12 +20,14 @@ public class Order {
     // DIP: Ở đây nên tạo DeliveryInfoIml (interface) để Order phụ thuộc vào, còn DeliveryInfo implements
     // DeliveryInfoIml. Như vậy sẽ đảm bảo nếu khi cần thay đổi sẽ không bị ảnh hưởng quá nhiều
 
+    // => Không chắc chắn về DIP
+
     public Order() {
         this.shippingFees = 0;
         this.subtotal = 0;
         this.tax = 0;
     }
-    //Stamp coupling: cart
+
     public Order(Cart cart) {
         List<OrderItem> orderItems = new ArrayList<>();
         for (Object object : SessionInformation.cartInstance.getListMedia()) {

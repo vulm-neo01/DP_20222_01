@@ -13,7 +13,6 @@ import java.util.*;
  *
  */
 
-//vi phạm SRP
 public class MyMap extends LinkedHashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
 

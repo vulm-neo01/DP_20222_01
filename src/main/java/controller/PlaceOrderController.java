@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
  * @author nguyenlm
  */
 public class PlaceOrderController extends BaseController {
-//SOLID_ SRP do vừa phải validate trường, vừa phải điều kiển trường dữ liệu
+    //SOLID_SRP: do vừa phải validate trường, vừa phải điều kiển trường dữ liệu
     /**
      * Just for logging purpose
      */
@@ -61,10 +61,7 @@ public class PlaceOrderController extends BaseController {
      * @throws IOException
      */
 
-    // Stamp coupling: info có thể chứa nhiê trường hơn cần thiết
-    //SRP
-
-    //SOILS_OCP: Khi thêm một trường nào đó cần validate thì cần phải thay đỏii code => tách ra một class mới
+    //SOLID_OCP: Khi thêm một trường nào đó cần validate thì cần phải thay đổi code => tách ra một class mới
   
     public DeliveryInfo processDeliveryInfo(HashMap info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         LOGGER.info("Process Delivery Info");
@@ -88,8 +85,7 @@ public class PlaceOrderController extends BaseController {
    * @throws IOException
    */
 
-    // Stamp coupling: info
-    //SRP
+    //SOLID_SRP: do vừa phải validate trường, vừa phải điều kiển trường dữ liệu
 
     // VULM: Tách phần validate thông tin giao hàng ra khỏi PlaceOrderController
     // Có thể sử dụng một Interface DeliveryInfoValidator và class BasicDeliveryInfoValidator implements nó
