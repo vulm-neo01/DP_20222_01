@@ -40,6 +40,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
     public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
 
+    public static final String addMediaFail = "Cannot add media to cart: ";
+    public static final String loginFail = "Cannot login";
+
     @FXML
     private Label numMediaInCart;
 
@@ -218,8 +221,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         int requestQuantity = mediaHandler.getRequestQuantity();
         Media media = mediaHandler.getMedia();
 
-        String addMediaFail = "Cannot add media to cart: ";
-        String loginFail = "Cannot login";
 
         try {
             if (requestQuantity > media.getQuantity()) throw new MediaNotAvailableException();
