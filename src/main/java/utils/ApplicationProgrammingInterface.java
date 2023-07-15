@@ -18,23 +18,24 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 public class ApplicationProgrammingInterface {
-
-	public static DateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//clean code thuộc tính DATE_FORMATTER khai báo nhưng ko được sử dụng
+	//public static DateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
-
+// phương thúc get co bien 'in' bien nay chua thẻ hien ro ý nghia mà bien duoc tao ra => chuyen ten bien thanh 'bufferedReader'
+// tên "bufferedReader" cho biết rõ rằng biến đó là một thể hiện của lớp BufferedReader và được sử dụng để đọc dữ liệu từ một luồng đầu vào.
 	public static String get(String url, String token) throws Exception {
 		LOGGER.info("Request URL: " + url + "\n");
 		HttpURLConnection conn = setupConnection(url);
 
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Authorization", "Bearer " + token);
-		BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 		String inputLine;
 		StringBuilder respone = new StringBuilder(); // ising StringBuilder for the sake of memory and performance
-		while ((inputLine = in.readLine()) != null)
+		while ((inputLine = bufferedReader.readLine()) != null)
 			System.out.println(inputLine);
 		respone.append(inputLine + "\n");
-		in.close();
+		bufferedReader.close();
 		LOGGER.info("Respone Info: " + respone.substring(0, respone.length() - 1).toString());
 		return respone.substring(0, respone.length() - 1).toString();
 	}

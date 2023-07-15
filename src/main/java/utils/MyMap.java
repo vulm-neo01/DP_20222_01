@@ -15,6 +15,8 @@ import java.util.*;
 public class MyMap extends LinkedHashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
 
+	public static final String resolveInputFail = "Cannot resolve the input."
+
 	/**
 	 * Return a {@link String String} that represents the JSON object.
 	 * 
@@ -99,7 +101,7 @@ public class MyMap extends LinkedHashMap<String, Object> {
 	 */
 	private static String getNextTerm(String str, int idx) {
 		if (str == null || idx >= str.length() || str.charAt(idx) != '"') {
-			throw new IllegalArgumentException("Cannot resolve the input.");
+			throw new IllegalArgumentException(resolveInputFail);
 		}
 
 		if (str.charAt(idx + 1) == '"') {
@@ -112,7 +114,7 @@ public class MyMap extends LinkedHashMap<String, Object> {
 			sb.append(str.charAt(i));
 			i++;
 			if (i == str.length()) {
-				throw new IllegalArgumentException("Cannot resolve the input.");
+				throw new IllegalArgumentException(resolveInputFail);
 			}
 		} while (str.charAt(i) != '"');
 
@@ -147,17 +149,17 @@ public class MyMap extends LinkedHashMap<String, Object> {
 			while (true) {
 				// open quote
 				if (str.charAt(i) != '"') {
-					throw new IllegalArgumentException("Cannot resolve the input.");
+					throw new IllegalArgumentException(resolveInputFail);
 				}
 				// get key
 				String key;
 				try {
 					key = getNextTerm(str, i);
 				} catch (Exception ex) {
-					throw new IllegalArgumentException("Cannot resolve the input.");
+					throw new IllegalArgumentException(resolveInputFail);
 				}
 				if (key == null) {
-					throw new IllegalArgumentException("Cannot resolve the input.");
+					throw new IllegalArgumentException(resolveInputFail);
 				}
 
 				sb.append(str.subSequence(i, i + offset));
@@ -168,7 +170,7 @@ public class MyMap extends LinkedHashMap<String, Object> {
 				// check colon
 				sb.append(str.charAt(i));
 				if (str.charAt(i) != ':') {
-					throw new IllegalArgumentException("Cannot resolve the input.");
+					throw new IllegalArgumentException(resolveInputFail);
 				}
 				i++;
 				// get value
@@ -182,16 +184,16 @@ public class MyMap extends LinkedHashMap<String, Object> {
 					try {
 						value = getNextTerm(str, i);
 					} catch (Exception ex) {
-						throw new IllegalArgumentException("Cannot resolve the input.");
+						throw new IllegalArgumentException(resolveInputFail);
 					}
 					if (value == null) {
-						throw new IllegalArgumentException("Cannot resolve the input.");
+						throw new IllegalArgumentException(resolveInputFail);
 					}
 					sb.append(str.subSequence(i, i + offset));
 					i += offset;
 					offset = 0;
 				} else {
-					throw new IllegalArgumentException("Cannot resolve the input.");
+					throw new IllegalArgumentException(resolveInputFail);
 				}
 				//
 				root.put(key, value);
@@ -202,13 +204,13 @@ public class MyMap extends LinkedHashMap<String, Object> {
 					sb.append(str.charAt(i));
 					break;
 				} else {
-					throw new IllegalArgumentException("Cannot resolve the input.");
+					throw new IllegalArgumentException(resolveInputFail);
 				}
 			}
 			offset = sb.toString().length();
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new IllegalArgumentException("Cannot resolve the input.");
+			throw new IllegalArgumentException(resolveInputFail);
 		}
 		return root;
 	}

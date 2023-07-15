@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import views.screen.ViewsConfig;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
@@ -44,7 +45,7 @@ public class IntroScreenHandler extends BaseScreenHandler {
     }
 
     protected void setupFunctionality() throws Exception {
-        File file = new File("src/main/resources/assets/images/Logo.png");
+        File file = new File(ViewsConfig.LOGO_PATH);
         Image image = new Image(file.toURI().toString());
         logo.setImage(image);
     }

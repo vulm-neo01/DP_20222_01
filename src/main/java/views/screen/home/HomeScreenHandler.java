@@ -92,13 +92,14 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         return (HomeController) super.getBController();
     }
 
+    //CLean code: Biên medium được đặt tên chưa rõi ý nghĩa => đổi thành mediaList thể hiện danh sách media được truyền
     protected void setupData(Object dto) throws Exception {
         setBController(new HomeController());
         this.authenticationController = new AuthenticationController();
         try{
-            List medium = getBController().getAllMedia();
+            List mediaList = getBController().getAllMedia();
             this.homeItems = new ArrayList<>();
-            for (Object object : medium) {
+            for (Object object : mediaList) {
                 Media media = (Media)object;
                 MediaHandler m = new MediaHandler(ViewsConfig.HOME_MEDIA_PATH, media);
                 m.attach(this);
@@ -217,6 +218,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         int requestQuantity = mediaHandler.getRequestQuantity();
         Media media = mediaHandler.getMedia();
 
+        String addMediaFail = "Cannot add media to cart: ";
+        String loginFail = "Cannot login";
+
         try {
             if (requestQuantity > media.getQuantity()) throw new MediaNotAvailableException();
             Cart cart = SessionInformation.cartInstance;
@@ -240,11 +244,11 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
                 LOGGER.severe(message);
                 PopupScreen.error(message);
             } catch (Exception e) {
-                LOGGER.severe("Cannot add media to cart: ");
+                LOGGER.severe(addMediaFail);
             }
 
         } catch (Exception exp) {
-            LOGGER.severe("Cannot add media to cart: ");
+            LOGGER.severe(addMediaFail);
             exp.printStackTrace();
         }
     }
@@ -260,7 +264,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             try {
                 PopupScreen.error("Cant trigger Login");
             } catch (Exception ex1) {
-                LOGGER.severe("Cannot login");
+                LOGGER.severe(loginFail);
                 ex.printStackTrace();
             }
         }

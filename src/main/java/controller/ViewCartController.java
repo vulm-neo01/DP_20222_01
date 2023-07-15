@@ -22,9 +22,10 @@ public class ViewCartController extends BaseController{
      * This method calculates the cart subtotal
      * @return subtotal
      */
+
+    // clean code: chuyển giá trị return về inline function
     public int getCartSubtotal(){
-        int subtotal = SessionInformation.cartInstance.calSubtotal();
-        return subtotal;
+        return SessionInformation.cartInstance.calSubtotal();
     }
 
 }

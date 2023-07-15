@@ -38,7 +38,7 @@ public class AuthenticationController extends BaseController {
 
     public void login(String email, String password) throws Exception {
         try {
-            User user = new UserDAO().authenticate(email, md5(password));
+            User user = new UserDAO().authenticate(email, genDigestByMd5(password));
             if (Objects.isNull(user)) throw new FailLoginException();
             SessionInformation.mainUser = user;
             SessionInformation.expiredTime = LocalDateTime.now().plusHours(24);
@@ -59,7 +59,9 @@ public class AuthenticationController extends BaseController {
      * @param message - plain text as {@link String String}.
      * @return cipher text as {@link String String}.
      */
-    private String md5(String message) {
+
+    // Clean_ code:  Hàm md5 được đă tên chung chung chưa thể hiện rõ ý nghĩa sinh một message sử dụng md5=> đổi thên thành genDigestByMd5
+    private String genDigestByMd5(String message) {
         String digest = null;
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

@@ -32,10 +32,12 @@ public class MediaDAO {
         return medium;
     }
 
+    //Clean-code: tham số id đươ truyền vào nhưng ko được sử dụng
     public Media getMediaById(int id) throws SQLException {
-        String sql = "SELECT * FROM Media ;";
-        Statement stm = AIMSDB.getConnection().createStatement();
-        ResultSet res = stm.executeQuery(sql);
+        String sql = "SELECT * FROM Media WHERE id = ?";
+        Statement stm = AIMSDB.getConnection().prepareStatement(sql);
+        stm.setInt(1, id);
+        ResultSet res = stm.executeQuery();
 
         if (res.next()) {
             return new Media(
@@ -50,14 +52,14 @@ public class MediaDAO {
         return null;
     }
 
-
-    public void updateMediaFieldById(String tbname, int id, String field, Object value) throws SQLException {
-        Statement stm = AIMSDB.getConnection().createStatement();
-        if (value instanceof String){
-            value = "\"" + value + "\"";
-        }
-        stm.executeUpdate(" update Media set" + " "
-                + field + "=" + value + " "
-                + "where id=" + id + ";");
-    }
+//clean -code: khai báo nhưng không được sử dụng
+//    public void updateMediaFieldById(String tbname, int id, String field, Object value) throws SQLException {
+//        Statement stm = AIMSDB.getConnection().createStatement();
+//        if (value instanceof String){
+//            value = "\"" + value + "\"";
+//        }
+//        stm.executeUpdate(" update Media set" + " "
+//                + field + "=" + value + " "
+//                + "where id=" + id + ";");
+//    }
 }

@@ -123,8 +123,9 @@ public class ShippingScreenHandler extends BaseScreenHandler {
 		return (PlaceOrderController) super.getBController();
 	}
 
-	public void notifyError(){
-		// TODO: implement later on if we need
-	}
+	//clean-code: khai báo nhưng không được thực hiện
+//	public void notifyError(){
+//		// TODO: implement later on if we need
+//	}
 
 }

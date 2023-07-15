@@ -23,6 +23,8 @@ import java.util.regex.Pattern;
  */
 public class PlaceOrderController extends BaseController {
 
+    final int lengthPhoneNumber = 10;
+
     /**
      * Just for logging purpose
      */
@@ -87,9 +89,9 @@ public class PlaceOrderController extends BaseController {
         || validateAddress(info.get("address"))) return;
         else throw new InvalidDeliveryInfoException();
     }
-    
+    //Clean code: hàng số 10 chưa ro ý nghĩa => chuyển nó thanh ten o y nghia hon lengthPhoneNumber = 10
     public boolean validatePhoneNumber(String phoneNumber) {
-        if (phoneNumber.length() != 10) return false;
+        if (phoneNumber.length() != lengthPhoneNumber) return false;
         if (!phoneNumber.startsWith("0")) return false;
         try {
             Integer.parseInt(phoneNumber);

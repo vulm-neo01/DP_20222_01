@@ -28,7 +28,4 @@ public class Invoice {
         return amount;
     }
 
-    public void saveInvoice(){
-        
-    }
 }
