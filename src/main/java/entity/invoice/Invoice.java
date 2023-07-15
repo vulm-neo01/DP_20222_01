@@ -28,4 +28,8 @@ public class Invoice {
         return amount;
     }
 
+    //Clean code: khai báo nhưng không được sử dụng
+//    public void saveInvoice(){
+//
+//    }
 }
