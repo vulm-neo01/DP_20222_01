@@ -15,8 +15,6 @@ public class DVD extends Media {
     Date releasedDate;
     String filmType;
 
-    //LSP
-    //Không gọi super phương thức class cha -> thay đổi thuộc tính class cha
     public DVD() throws SQLException{
 
     }

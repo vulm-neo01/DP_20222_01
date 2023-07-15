@@ -12,8 +12,6 @@ public class CD extends Media {
     String musicType;
     Date releasedDate;
 
-    //LSP
-    //Không gọi super phương thức class cha -> thay đổi thuộc tính class cha
     public CD() throws SQLException{
 
     }
