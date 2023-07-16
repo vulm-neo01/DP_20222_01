@@ -1,6 +1,8 @@
 # Nhóm 1 - IT4536 
 # An Internet Media Store
 
+Presentation video link: https://drive.google.com/file/d/1rwiJHQSWyqajDVdCoXOM2kZFRPAk2OhW/view?usp=sharing
+
 ## Thành viên
 
 - Lê Minh Vũ - 20194212 - Trưởng nhóm
