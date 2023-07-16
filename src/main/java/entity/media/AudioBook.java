@@ -5,7 +5,7 @@ import entity.media.type.MediaType;
 import java.sql.SQLException;
 import java.util.Date;
 
-@MediaType(name = "Movie")
+@MediaType(name = "Audio Book")
 public class AudioBook extends Media{
     String artist;
     String recordLabel;
