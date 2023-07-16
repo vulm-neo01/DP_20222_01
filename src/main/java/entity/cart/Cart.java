@@ -9,10 +9,15 @@ import entity.media.Media;
 
 //Singleton: Cart should have only 1 instance
 public class Cart {
-    
+    //DP: SingletonP Mỗi tài khoản chỉ có một giỏ hàng duy nhaat trong suốt chương trình.
     private List<CartItem> lstCartItem;
 
-    public Cart() {
+    private static final Cart cart = new Cart();
+
+    public static Cart getInstance(){
+        return cart;
+    }
+    private Cart() {
         lstCartItem = new ArrayList<>();
     }
 
