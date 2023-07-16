@@ -11,9 +11,9 @@
 ## Phân chia công việc
 ### BTVN
 - Lê Minh Vũ: Content coupling; cohesion; SOLID: OCP, DIP; Design Pattern: Template Method, Factory Method, Strategy Method.
-- Lương Thái Nam: Stamp coupling; SOLID: LSP; Design Pattern: Singleton.
-- Nguyễn Xuân Sơn: Cohesion; SOLID: LSP, ISP; Design Pattern: Template Method, Strategy Method.
-- Trần Văn Quang: Cohesion; SOLID: SRP, OCP; Design Pattern: Singleton, Strategy Method.
+- Lương Thái Nam: Stamp coupling; SOLID: LSP; Design Pattern: Singleton; Clean name.
+- Nguyễn Xuân Sơn: Cohesion; SOLID: LSP, ISP; Design Pattern: Template Method, Strategy Method; Clean function.
+- Trần Văn Quang: Cohesion; SOLID: SRP, OCP; Design Pattern: Singleton, Strategy Method; Clean class.
 
 ### Chuẩn bị trước báo cáo
 - Lê Minh Vũ: Làm báo cáo, slide; Review SOLID; Review DP.
