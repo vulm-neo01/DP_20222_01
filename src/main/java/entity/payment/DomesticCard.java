@@ -3,17 +3,14 @@ package entity.payment;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author
- */
-public class CreditCard extends PaymentCard {
+public class DomesticCard extends PaymentCard{
 
     // private String cardCode;
     // private String owner;
     private String dateExpired;
     protected int cvvCode;
 
-    public CreditCard(String cardCode, String owner, String dateExpired, int cvvCode) {
+    public DomesticCard(String cardCode, String owner, String dateExpired, int cvvCode) {
         this.cardCode = cardCode;
         this.owner = owner;
         this.dateExpired = dateExpired;
@@ -29,5 +26,4 @@ public class CreditCard extends PaymentCard {
         cartInfoMap.put("cvvCode", String.valueOf(this.cvvCode));
         return cartInfoMap;
     }
-
 }
