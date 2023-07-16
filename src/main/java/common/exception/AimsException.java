@@ -7,7 +7,6 @@ package common.exception;;
  * @author nguyenlm
  */
 public class AimsException extends RuntimeException {
-	// Không phải Template Method => Suy nghĩ lại
     public AimsException() {
 
 	}
