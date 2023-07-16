@@ -4,6 +4,8 @@ import controller.SessionInformation;
 import entity.cart.Cart;
 import entity.cart.CartItem;
 import entity.shipping.DeliveryInfo;
+import utils.distance.DistanceInterface;
+import utils.fees.CalculateFee;
 import views.screen.ViewsConfig;
 
 import java.util.ArrayList;
@@ -18,13 +20,15 @@ public class Order {
     private List orderMediaList;
     protected DeliveryInfo deliveryInfo;
 
+    private CalculateFee feeStrategy;
+
     public Order() {
         this.shippingFees = 0;
         this.subtotal = 0;
         this.tax = 0;
     }
 
-    public Order(Cart cart) {
+    public Order(Cart cart, CalculateFee feeStrategy) {
         List<OrderItem> orderItems = new ArrayList<>();
         for (Object object : SessionInformation.cartInstance.getListMedia()) {
             CartItem cartItem = (CartItem) object;
@@ -36,6 +40,7 @@ public class Order {
         this.orderMediaList = Collections.unmodifiableList(orderItems);
         this.subtotal = cart.calSubtotal();
         this.tax = (int) (ViewsConfig.PERCENT_VAT/100) * subtotal;
+        this.feeStrategy = feeStrategy;
     }
 
     public List getListOrderMedia() {
@@ -43,8 +48,9 @@ public class Order {
     }
 
     public int getShippingFees() {
-        if (deliveryInfo == null) return 0;
-        return this.shippingFees;
+        String address = this.deliveryInfo.getAddress();
+        String province = this.deliveryInfo.getProvince();
+        return feeStrategy.calculateFee(this, address, province);
     }
 
     public DeliveryInfo getDeliveryInfo() {
@@ -53,7 +59,7 @@ public class Order {
 
     public void setDeliveryInfo(DeliveryInfo deliveryInfo) {
         this.deliveryInfo = deliveryInfo;
-        this.shippingFees = deliveryInfo.calculateShippingFee(this);
+        this.shippingFees = this.getShippingFees();
     }
 
     public List getOrderMediaList() {
