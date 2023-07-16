@@ -20,10 +20,10 @@ public class PaymentCreditCard extends PaymentMethod{
         result.put("RESULT", "PAYMENT FAILED!");
         try {
             PaymentCard creditCard = new CreditCard(
-                    card.toTransactionMap().get("cardCode"),
-                    card.toTransactionMap().get("owner"),
-                    super.getExpirationDate(card.toTransactionMap().get("dateExpired")),
-                    Integer.parseInt(card.toTransactionMap().get("cvvCode"))
+                    card.cardInfo().get("cardCode"),
+                    card.cardInfo().get("owner"),
+                    super.getExpirationDate(card.cardInfo().get("dateExpired")),
+                    Integer.parseInt(card.cardInfo().get("cvvCode"))
             );
 
             super.interbank = new InterbankSubsystem();

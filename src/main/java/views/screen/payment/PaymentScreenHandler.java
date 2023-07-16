@@ -2,8 +2,10 @@ package views.screen.payment;
 
 import controller.PaymentController;
 import controller.PaymentMethod.PaymentCreditCard;
+import controller.PaymentMethod.PaymentDomesticCard;
 import entity.invoice.Invoice;
 import entity.payment.CreditCard;
+import entity.payment.DomesticCard;
 import entity.payment.PaymentCard;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -79,13 +81,11 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	void confirmToPayOrder() throws IOException{
 		String contents = "pay order";
 		PaymentController ctrl = (PaymentController) getBController();
-//		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
-//				expirationDate.getText(), securityCode.getText());
 
-		PaymentCard creditCard = new CreditCard(cardNumber.getText(), holderName.getText(),
+		PaymentCard domesticCard = new DomesticCard(cardNumber.getText(), holderName.getText(),
 				expirationDate.getText(), Integer.parseInt(securityCode.getText()));
-		ctrl.setPaymentMethod(new PaymentCreditCard(), creditCard);
-//		ctrl.setCard(creditCard);
+		ctrl.setPaymentMethod(new PaymentDomesticCard(), domesticCard);
+
 		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents);
 
 		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, ViewsConfig.RESULT_SCREEN_PATH, response);

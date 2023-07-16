@@ -7,5 +7,5 @@ public abstract  class PaymentCard {
     protected String owner;
     protected String cardCode;
 
-    public abstract Map<String, String> toTransactionMap();
+    public abstract Map<String, String> cardInfo();
 }
