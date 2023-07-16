@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @author
  */
-public class MediaDAO {
+public class MediaDAO{
 
     public List getAllMedia() throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();

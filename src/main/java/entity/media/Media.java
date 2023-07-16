@@ -4,15 +4,18 @@ import dao.media.MediaDAO;
 import entity.db.AIMSDB;
 import utils.Utils;
 
+import java.lang.reflect.Field;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
  * The general media class, for another media it can be done by inheriting this class
  * @author nguyenlm
  */
-public class Media {
+public abstract class Media {
 
     private static Logger LOGGER = Utils.getLogger(Media.class.getName());
 
@@ -109,5 +112,29 @@ public class Media {
     public Media setType(String type) {
         this.type = type;
         return this;
+    }
+
+    // YC2: Sử dụng Reflection Field để lấy tên các trường và giá trị của chúng.
+    public Map<String, Object> getDetails() {
+        Map<String, Object> map = new HashMap<>();
+
+        try {
+            Field[] parentFields = this.getClass().getSuperclass().getDeclaredFields();
+            Field[] childFields = this.getClass().getDeclaredFields();
+
+            for (Field field : parentFields) {
+                field.setAccessible(true);
+                map.put(field.getName(), field.get(this));
+            }
+
+            for (Field field : childFields) {
+                field.setAccessible(true);
+                map.put(field.getName(), field.get(this));
+            }
+
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException("Error accessing field values", e);
+        }
+        return map;
     }
 }
