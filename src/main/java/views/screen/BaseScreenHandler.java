@@ -15,6 +15,9 @@ import views.screen.home.HomeScreenHandler;
 import views.screen.popup.PopupScreen;
 
 public abstract class BaseScreenHandler extends FXMLScreenHandler {
+	// Có thể các abstract method vào class này để các class con kế thừa và triển khai
+	// Ví dụ như setupData, setupFunctionality
+	// Ngoài vấn đề đó, thì đây chính là một Template Method
 
 	private static final Logger LOGGER = Utils.getLogger(BaseScreenHandler.class.getName());
 
