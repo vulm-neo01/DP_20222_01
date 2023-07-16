@@ -2,12 +2,12 @@
 # An Internet Media Store
 
 Presentation video link: https://drive.google.com/file/d/1rwiJHQSWyqajDVdCoXOM2kZFRPAk2OhW/view?usp=sharing
-Nhánh báo cáo, slide: main_report
-Nhánh giải pháp các yêu cầu: Solution
-Nhánh check cohesion, coupling: Cohesion-Coupling
-Nhánh check SOLID: SOLID_Merged
-Nhánh Design Pattern: DP_(các mẫu thiết kế)
-Nhánh check clean code: Clean_Code
+- Nhánh báo cáo, slide: main_report
+- Nhánh giải pháp các yêu cầu: Solution
+- Nhánh check cohesion, coupling: Cohesion-Coupling
+- Nhánh check SOLID: SOLID_Merged
+- Nhánh Design Pattern: DP_(các mẫu thiết kế)
+- Nhánh check clean code: Clean_Code
 
 ## Thành viên
 
