@@ -6,18 +6,18 @@ import java.sql.SQLException;
 import java.util.Date;
 
 @MediaType(name = "Movie")
-public class Movie extends Media{
+public class AudioBook extends Media{
     String artist;
     String recordLabel;
     String musicType;
     Date releasedDate;
 
-    public Movie() throws SQLException{
+    public AudioBook() throws SQLException{
 
     }
 
-    public Movie(int id, String title, String category, int price, int quantity, String type, String artist,
-              String recordLabel, String musicType, Date releasedDate) throws SQLException{
+    public AudioBook(int id, String title, String category, int price, int quantity, String type, String artist,
+                     String recordLabel, String musicType, Date releasedDate) throws SQLException{
         super(id, title, category, price, quantity, type);
         this.artist = artist;
         this.recordLabel = recordLabel;
@@ -29,7 +29,7 @@ public class Movie extends Media{
         return this.artist;
     }
 
-    public Movie setArtist(String artist) {
+    public AudioBook setArtist(String artist) {
         this.artist = artist;
         return this;
     }
@@ -38,7 +38,7 @@ public class Movie extends Media{
         return this.recordLabel;
     }
 
-    public Movie setRecordLabel(String recordLabel) {
+    public AudioBook setRecordLabel(String recordLabel) {
         this.recordLabel = recordLabel;
         return this;
     }
@@ -47,7 +47,7 @@ public class Movie extends Media{
         return this.musicType;
     }
 
-    public Movie setMusicType(String musicType) {
+    public AudioBook setMusicType(String musicType) {
         this.musicType = musicType;
         return this;
     }
@@ -56,7 +56,7 @@ public class Movie extends Media{
         return this.releasedDate;
     }
 
-    public Movie setReleasedDate(Date releasedDate) {
+    public AudioBook setReleasedDate(Date releasedDate) {
         this.releasedDate = releasedDate;
         return this;
     }

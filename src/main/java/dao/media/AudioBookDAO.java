@@ -1,15 +1,14 @@
 package dao.media;
 
 import entity.db.AIMSDB;
-import entity.media.CD;
 import entity.media.Media;
-import entity.media.Movie;
+import entity.media.AudioBook;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-public class MovieDAO extends MediaDAO{
+public class AudioBookDAO extends MediaDAO{
 
     @Override
     public Media getMediaById(int id) throws SQLException {
@@ -35,7 +34,7 @@ public class MovieDAO extends MediaDAO{
             String musicType = res.getString("musicType");
             Date releasedDate = res.getDate("releasedDate");
 
-            return new Movie(id, title, category, price, quantity, type,
+            return new AudioBook(id, title, category, price, quantity, type,
                     artist, recordLabel, musicType, releasedDate);
 
         } else {
