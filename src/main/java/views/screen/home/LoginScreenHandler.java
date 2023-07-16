@@ -51,7 +51,8 @@ public class LoginScreenHandler extends BaseScreenHandler{
             setupFunctionality();
         } catch (IOException ex) {
             LOGGER.info(ex.getMessage());
-            PopupScreen.error("Error when loading resources.");
+            handlePopupError(errorLogin);
+//            PopupScreen.error("Error when loading resources.");
         } catch (Exception ex) {
             LOGGER.info(ex.getMessage());
             PopupScreen.error(ex.getMessage());

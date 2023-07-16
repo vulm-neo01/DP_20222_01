@@ -26,6 +26,7 @@ public class ViewsConfig {
     public static final String HOME_PATH  = "/views/fxml/home.fxml";
     public static final String HOME_MEDIA_PATH = "/views/fxml/media_home.fxml";
     public static final String POPUP_PATH = "/views/fxml/popup.fxml";
+    public static final String TEXT_ERROR = "/views/fxml/text_error.fxml";
 
     public static float PERCENT_VAT = 10;
 
