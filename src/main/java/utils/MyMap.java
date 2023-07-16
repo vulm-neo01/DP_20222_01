@@ -15,7 +15,7 @@ import java.util.*;
 public class MyMap extends LinkedHashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
 
-	public static final String resolveInputFail = "Cannot resolve the input."
+	public static final String resolveInputFail = "Cannot resolve the input.";
 
 	/**
 	 * Return a {@link String String} that represents the JSON object.

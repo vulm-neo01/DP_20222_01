@@ -3,6 +3,7 @@ package dao.media;
 import entity.db.AIMSDB;
 import entity.media.Media;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -35,7 +36,7 @@ public class MediaDAO {
     //Clean-code: tham số id đươ truyền vào nhưng ko được sử dụng
     public Media getMediaById(int id) throws SQLException {
         String sql = "SELECT * FROM Media WHERE id = ?";
-        Statement stm = AIMSDB.getConnection().prepareStatement(sql);
+        PreparedStatement stm = AIMSDB.getConnection().prepareStatement(sql);
         stm.setInt(1, id);
         ResultSet res = stm.executeQuery();
 
