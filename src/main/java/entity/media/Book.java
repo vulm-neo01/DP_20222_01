@@ -7,7 +7,9 @@ import java.util.Date;
 import java.util.List;
 
 import entity.db.AIMSDB;
+import entity.media.type.MediaType;
 
+@MediaType(name = "Book")
 public class Book extends Media {
 
     String author;

@@ -1,10 +1,13 @@
 package entity.media;
 
+import entity.media.type.MediaType;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+@MediaType(name = "DVD")
 public class DVD extends Media {
 
     String discType;

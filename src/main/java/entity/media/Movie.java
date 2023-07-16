@@ -2,25 +2,22 @@ package entity.media;
 
 import entity.media.type.MediaType;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.List;
 
-@MediaType(name = "CD")
-public class CD extends Media {
-
+@MediaType(name = "Movie")
+public class Movie extends Media{
     String artist;
     String recordLabel;
     String musicType;
     Date releasedDate;
 
-    public CD() throws SQLException{
+    public Movie() throws SQLException{
 
     }
 
-    public CD(int id, String title, String category, int price, int quantity, String type, String artist,
-            String recordLabel, String musicType, Date releasedDate) throws SQLException{
+    public Movie(int id, String title, String category, int price, int quantity, String type, String artist,
+              String recordLabel, String musicType, Date releasedDate) throws SQLException{
         super(id, title, category, price, quantity, type);
         this.artist = artist;
         this.recordLabel = recordLabel;
@@ -32,7 +29,7 @@ public class CD extends Media {
         return this.artist;
     }
 
-    public CD setArtist(String artist) {
+    public Movie setArtist(String artist) {
         this.artist = artist;
         return this;
     }
@@ -41,7 +38,7 @@ public class CD extends Media {
         return this.recordLabel;
     }
 
-    public CD setRecordLabel(String recordLabel) {
+    public Movie setRecordLabel(String recordLabel) {
         this.recordLabel = recordLabel;
         return this;
     }
@@ -50,7 +47,7 @@ public class CD extends Media {
         return this.musicType;
     }
 
-    public CD setMusicType(String musicType) {
+    public Movie setMusicType(String musicType) {
         this.musicType = musicType;
         return this;
     }
@@ -59,7 +56,7 @@ public class CD extends Media {
         return this.releasedDate;
     }
 
-    public CD setReleasedDate(Date releasedDate) {
+    public Movie setReleasedDate(Date releasedDate) {
         this.releasedDate = releasedDate;
         return this;
     }

@@ -18,7 +18,10 @@ import common.interfaces.Observer;
 import controller.*;
 import entity.cart.Cart;
 import entity.cart.CartItem;
+import entity.media.CD;
 import entity.media.Media;
+import entity.media.type.MediaType;
+import utils.MediaTypes;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -29,11 +32,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import utils.MediaTypes;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.ViewsConfig;
 import views.screen.cart.CartScreenHandler;
 import views.screen.popup.PopupScreen;
+
+import static utils.MediaTypes.getAllMediaTypes;
 
 
 public class HomeScreenHandler extends BaseScreenHandler implements Observer {
@@ -129,9 +135,11 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             }
         });
         addMediaHome(this.homeItems);
-        addMenuItem(0, "Book", splitMenuBtnSearch);
-        addMenuItem(1, "DVD", splitMenuBtnSearch);
-        addMenuItem(2, "CD", splitMenuBtnSearch);
+
+        List<String> allMediaTypes = getAllMediaTypes();
+        for(int i = 0; i < allMediaTypes.size(); i++){
+            addMenuItem(i, allMediaTypes.get(i), splitMenuBtnSearch);
+        }
     }
 
     @Override
@@ -197,8 +205,16 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             List filteredItems = new ArrayList<>();
             homeItems.forEach(me -> {
                 MediaHandler media = (MediaHandler) me;
-                if (media.getMedia().getTitle().toLowerCase().startsWith(text.toLowerCase())){
-                    filteredItems.add(media);
+                if (text.equalsIgnoreCase("Movie")) {
+                    // Render CD items
+                    if (media.getMedia() instanceof CD) {
+                        filteredItems.add(media);
+                    }
+                } else {
+                    // Render other media items based on the selected category
+                    if (media.getMedia().getTitle().toLowerCase().startsWith(text.toLowerCase())) {
+                        filteredItems.add(media);
+                    }
                 }
             });
 
