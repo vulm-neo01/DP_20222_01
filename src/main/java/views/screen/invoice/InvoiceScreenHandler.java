@@ -64,6 +64,7 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 			setupFunctionality();
 		} catch (IOException ex) {
 			LOGGER.info(ex.getMessage());
+			handlePopupError(errorLoading);
 			PopupScreen.error("Error when loading resources.");
 		} catch (Exception ex) {
 			LOGGER.info(ex.getMessage());

@@ -3,6 +3,7 @@ package views.screen;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.SimpleTimeZone;
 import java.util.logging.Logger;
 
 import controller.AuthenticationController;
@@ -13,11 +14,15 @@ import javafx.stage.Stage;
 import utils.Utils;
 import views.screen.home.HomeScreenHandler;
 import views.screen.popup.PopupScreen;
+import views.screen.textError.TextErrorScreen;
 
 public abstract class BaseScreenHandler extends FXMLScreenHandler {
 
 	private static final Logger LOGGER = Utils.getLogger(BaseScreenHandler.class.getName());
 
+	public static final String errorLoading = "Error when loading resources.";
+	public static final String notAnythingPlace = "You don't have anything to place";
+	public static final String errorLogin = "Cant trigger Login";
 
 	private Scene scene;
 	private BaseScreenHandler prev;
@@ -67,4 +72,18 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 		this.homeScreenHandler = HomeScreenHandler;
 	}
 
+	protected void handlePopupError(String messageError) {
+		try {
+			PopupScreen.error(messageError);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	protected void handleTextError(String messageError){
+		try {
+			TextErrorScreen.error(messageError);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	};
 }
