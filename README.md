@@ -1,47 +1,31 @@
 # Nhóm 1 - IT4536 
 # An Internet Media Store
-<p align="center">
-  <img src="src/main/resources/assets/images/aims_cover_image.png" />
-</p>
 
-## Getting Started
+## Thành viên
 
-Welcome to the AIMS project. Here is a guideline to help you get started.
+- Lê Minh Vũ - 20194212 - Trưởng nhóm
+- Lương Thái Nam - 20194126
+- Nguyễn Xuân Sơn - 20194160
+- Trần Văn Quang - 20194147
 
-## Folder Structure
+## Phân chia công việc
+### BTVN
+- Lê Minh Vũ: Content coupling; cohesion; SOLID: OCP, DIP; Design Pattern: Template Method, Factory Method, Strategy Method.
+- Lương Thái Nam: Stamp coupling; SOLID: LSP; Design Pattern: Singleton.
+- Nguyễn Xuân Sơn: Cohesion; SOLID: LSP, ISP; Design Pattern: Template Method, Strategy Method.
+- Trần Văn Quang: Cohesion; SOLID: SRP, OCP; Design Pattern: Singleton, Strategy Method.
 
-The workspace contains the following folders, where:
+### Chuẩn bị trước báo cáo
+- Lê Minh Vũ: Làm báo cáo, slide; Review SOLID; Review DP.
+- Lương Thái Nam: Làm báo cáo, slide; Review cohesion coupling
+- Nguyễn Xuân Sơn: Làm báo cáo, slide; 
+- Trần Văn Quang: Làm báo cáo, slide; Review Clean code;
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-- `test`: the folder for testing purpose
-
-## Dependency Management
-### Working with Eclipse
-Import the root directory of this repository after cloning under `Eclipse` -> `Open Projects from File System...` or by using EGit.
-
-### SQLite
-Import `sqlite-jdbc-3.7.2.jar` in `lib` under `Eclipse` -> `Project` -> `Properties` -> `Java Build Path` -> `Classpath` -> `Add JARs...`.
-
-
-### JUnit
-Import `JUnit5` library under `Eclipse` -> `Project` -> `Properties` -> `Java Build Path` -> `Modulepath` -> `Add Library...` -> `JUnit` -> `Next`.
-
-### JavaFX
-**Note:** At first, please try to run the project once, and then follow these steps.
-1. Create a new `User Library` under `Eclipse` -> `Window` -> `Preferences` -> `Java` -> `Build Path` -> `User Libraries` -> `New`
-2. Name it anything you want, e.g., `JavaFX15`, and include the ***jars*** under either the `lib/linux/javafx-sdk-15` directory for Linux distro or the `lib/win/javafx-sdk-15` directory for Windows in the project.
-3. Include the library, e.g., `JavaFX15`, into the classpath.
-
-### Add VM arguments
-Click on `Run` -> `Run Configurations...`  -> `Java Application`, create a new launch configuration for your project and add these VM arguments:
-- For Linux distro: 
-> `--module-path lib/linux/javafx-sdk-15 --add-modules javafx.controls,javafx.fxml`
-- For Windows:
-> `--module-path lib/win/javafx-sdk-15 --add-modules javafx.controls,javafx.fxml`
-
-## Author
-- nguyenlm - Software Engeneering Student - k61
-- manhvd   - Software Engeneering Student - k61
-- hieudm   - ICT - k61
-- thanhld  - ICT - k62
+### Đề xuất các giải pháp theo yêu cầu:
+- Yêu cầu 1 - Thêm mặt hàng Media mới AudioBook: Lê Minh Vũ
+- Yêu cầu 2 - Thêm màn hình Xem chi tiết sản phẩm: Lê Minh Vũ
+- Yêu cầu 3 - Thay đổi yêu cầu khi load giao diện: Trần Văn Quang
+- Yêu cầu 4 - Thay đổi cách tính khoảng cách, sử dụng thư viện mới: Lương Thái Nam
+- Yêu cầu 5 - Thêm phương thức thanh toán mới Thẻ nội địa (Domestic Card): Nguyễn Xuân Sơn
+- Yêu cầu 6 - Thay đổi công thức tính phí vận chuyển: Lương Thái Nam
+- Yêu cầu 7 - Cập nhật lại chức năng hủy đơn hàng: Dự kiến sử dụng State Pattern nhưng chưa được học.
