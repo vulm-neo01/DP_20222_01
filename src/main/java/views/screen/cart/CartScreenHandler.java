@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.ViewsConfig;
+import views.screen.handleError.HandlePopupError;
 import views.screen.popup.PopupScreen;
 import views.screen.shipping.ShippingScreenHandler;
 
@@ -59,8 +60,8 @@ public class CartScreenHandler extends BaseScreenHandler {
 			setupFunctionality();
 		} catch (IOException ex) {
 			LOGGER.info(ex.getMessage());
-			handlePopupError(errorLoading);
-//			PopupScreen.error("Error when loading resources.");
+			setHandleError(new HandlePopupError());
+			handleErrorScreen(errorLoading);
 		} catch (Exception ex) {
 			LOGGER.info(ex.getMessage());
 			PopupScreen.error(ex.getMessage());
@@ -109,8 +110,8 @@ public class CartScreenHandler extends BaseScreenHandler {
 			// create placeOrderController and process the order
 			PlaceOrderController placeOrderController = new PlaceOrderController();
 			if (placeOrderController.getListCartMedia().size() == 0){
-				handlePopupError(notAnythingPlace);
-//				PopupScreen.error("You don't have anything to place");
+				setHandleError(new HandlePopupError());
+				handleErrorScreen(notAnythingPlace);
 				return;
 			}
 

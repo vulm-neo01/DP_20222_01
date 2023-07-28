@@ -23,6 +23,7 @@ import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.ViewsConfig;
 import views.screen.cart.CartScreenHandler;
+import views.screen.handleError.HandlePopupError;
 import views.screen.popup.PopupScreen;
 
 import java.io.File;
@@ -51,8 +52,8 @@ public class LoginScreenHandler extends BaseScreenHandler{
             setupFunctionality();
         } catch (IOException ex) {
             LOGGER.info(ex.getMessage());
-            handlePopupError(errorLogin);
-//            PopupScreen.error("Error when loading resources.");
+            setHandleError(new HandlePopupError());
+            handleErrorScreen(errorLoading);
         } catch (Exception ex) {
             LOGGER.info(ex.getMessage());
             PopupScreen.error(ex.getMessage());

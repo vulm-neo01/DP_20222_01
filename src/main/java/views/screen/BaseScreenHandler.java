@@ -12,12 +12,14 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import utils.Utils;
+import views.screen.handleError.HandleErrorStrategy;
 import views.screen.home.HomeScreenHandler;
 import views.screen.popup.PopupScreen;
 import views.screen.textError.TextErrorScreen;
 
 public abstract class BaseScreenHandler extends FXMLScreenHandler {
 
+	private HandleErrorStrategy handleError;
 	private static final Logger LOGGER = Utils.getLogger(BaseScreenHandler.class.getName());
 
 	public static final String errorLoading = "Error when loading resources.";
@@ -72,18 +74,10 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 		this.homeScreenHandler = HomeScreenHandler;
 	}
 
-	protected void handlePopupError(String messageError) {
-		try {
-			PopupScreen.error(messageError);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public void setHandleError(HandleErrorStrategy handleError){
+		this.handleError = handleError;
 	}
-	protected void handleTextError(String messageError){
-		try {
-			TextErrorScreen.error(messageError);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	};
+	public void handleErrorScreen(String messageError){
+		handleError.handelError(messageError);
+	}
 }
