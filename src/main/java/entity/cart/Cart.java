@@ -12,13 +12,16 @@ public class Cart {
     //DP: SingletonP Mỗi tài khoản chỉ có một giỏ hàng duy nhaat trong suốt chương trình.
     private List<CartItem> lstCartItem;
 
-    private static final Cart cart = new Cart();
-
-    public static Cart getInstance(){
-        return cart;
-    }
+    private static Cart cartInstance;
     private Cart() {
         lstCartItem = new ArrayList<>();
+    }
+
+    public static Cart getInstance(){
+        if(cartInstance == null){
+            cartInstance = new Cart();
+        }
+        return cartInstance;
     }
 
     public void addCartMedia(CartItem cm){
